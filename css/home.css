@@ -1,0 +1,537 @@
+body{
+
+font-family: "cairo", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  
+}
+/*==================================================================HERO SECTION============================================*/
+
+.hero-section{
+    margin: 40px 0 0 40px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:  calc(100% - 40px);
+    
+
+}
+.explore-all-artists{
+    background-color: #B9563E;
+    color: white;
+    border: none;
+    height: 42px;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    width: 200px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 60px;
+}
+
+.explore-all-artists:hover{
+background-color:#7E2E1B;
+width: 220px;
+height: 50px;
+border: 1px solid whitesmoke;
+transform: scale(1.05);
+font-weight:400;
+}
+
+
+
+.south{
+    color: #B9563E;
+}
+
+
+.living-archive{
+    font-size: 20px;
+    font-weight: 200;
+    white-space: nowrap;
+}
+
+    
+
+.hero-description{
+    font-size:30px;
+}
+
+
+
+.hero-h2,
+.south{
+    font-size: 70px;
+    line-height: 1.;
+    font-weight: 800;
+    max-width: 600px;
+    margin: 5px 0;
+    
+}
+
+.hero-h2, 
+.south{
+    font-family: "coda", sans-serif;
+}
+
+
+   .hero-section p{
+    font-size: 20px;
+    margin-bottom: 24px;
+    margin-top: 5px;
+    
+   }
+
+   .hero-img{
+    position: relative;
+    width: 760px;
+    height: 700px;
+    flex:1;
+   }
+
+   .soweto-towers{
+    width: 400px;
+    height: 620px !important;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.8);
+    top: 70px;
+    right:-40px;
+    z-index: 1;
+    display: none;
+   }
+
+   .hero-img  img{
+    position:absolute;
+    height: auto;
+    min-width: 0;
+   }
+
+   .Vinyl{
+    width: 550px;
+    top: 80px;
+    left: -80px;
+    z-index: 2;
+   }
+
+   .Miriam-makeba-hs{
+    width: 700px;
+    bottom: 100px;
+    right: 10px;
+    z-index: 3;
+    
+   }
+
+
+   /*========================================================================FEATURED ARTISTS===================================================================*/
+
+   .section-heading{
+    color: #7E2E1B;
+    font-size: 42px;
+    font-weight: 100;
+     font-family: "Alfa Slab One", serif;
+
+
+   }
+
+
+.heading-section h2{
+    font-size:32px;
+    font-weight: 200;
+    font-style: normal;
+    margin-top: -30px;
+    color: white;
+
+    
+}
+
+
+/*=====================================================================FEATURED ARTISTS================================================================*/
+
+.featured-artists{
+    padding: 70px 6%;
+    background-color: #131212;
+    color: #201C19;
+}
+
+
+.heading-section{
+    margin-bottom: 30px;
+}
+
+
+/*view all artists link*/
+
+.view-all-artists-section{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 22px;
+    
+}
+
+.view-all-artists-section a{
+
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: white;
+    font-weight: 400;
+    margin-top: -10px;
+    margin-top: -35px;
+}
+
+.view-all-artists-section a:hover{
+    color: #B9563E;
+}
+
+/*artist card layout*/
+
+.featured-artists-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    align-items: start;
+}
+
+.artist-card{
+    display: block;
+    min-width: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+.artist-card-image img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.4s ease;
+}
+
+.artist-card-image{
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #d8cec3;
+    border: 1px solid #eccac2;
+    border-radius: 10px;
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.artist-card:hover .artist-card-image img{
+    transform: scale(1.04);
+}
+
+/*Arrow on artist card*/
+
+.artist-card-arrow{
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #B9563E;
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3 ease, transform 0.3s ease;
+}
+
+.artist-card:hover .artist-card-arrow,
+.artist-card:focus-visible .artist-card-arrow{
+opacity: 1;
+transform: translateY(0);
+}
+
+.artist-card:focus-visible{
+    outline: 2px solid #B9563E;
+    outline-offset: 5px;
+   
+}
+
+/*Artist information*/
+.artist-card-info {
+    padding: 15px 0;
+    color: white;
+    width: 100%;
+    background-color: #0c0c0c;
+    border: 1px solid #eccac2;
+    border-top: none;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.artist-card-info h3{
+    margin: 0 0 6px;
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+    margin-left: 10px;
+}
+
+.artist-card-info p{
+    margin: 0;
+    font-size: 13px;
+    color: #f1ede9;
+    margin-left: 10px;
+}
+
+.artist-card1{
+    background-color: #eccac2;
+}
+
+/*======================================================GENRES SECTION=======================================================*/
+
+.featured-genres h3{
+    font-size:32px;
+    font-weight: 200;
+    font-style: normal;
+    margin-top: -30px;
+    color: white;
+   
+}
+
+
+.featured-genres{
+     margin-left:40px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 30px;
+}
+
+.genre-content{
+    max-width: 700px;
+}
+
+.explore-all-genres{
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    text-decoration: none;
+
+    background-color: #B9563E;
+    color: white;
+    border: none;
+    height: 42px;
+    border-radius: 10px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    width: 200px !important;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 0;
+    flex-shrink: 0;
+
+
+}
+
+.explore-all-genres:hover{
+background-color:#7E2E1B;
+width: 220px;
+height: 50px;
+border: 1px solid whitesmoke;
+font-weight:400;
+}
+
+/*genre cards*/
+.cards-section{
+    width: 70%;
+    max-width: 800px;
+    margin:30px auto;
+    padding-top: 100px;
+    scroll-margin-top: 100px;
+
+}
+
+
+.genre-stack{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.genre-card{
+    position:sticky;
+    top: 20px;
+    min-height: 220px;
+    padding: 24px 5%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    isolation: isolate;
+    background-color: #171411;
+    border: 1px solid #49353e;
+    border-radius: 4px;
+    color: #f1e8df;
+}
+
+/*subtle background image*/
+
+.genre-card::before{
+    content: "";
+    position:absolute;
+    inset:0;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity:0.18;
+    filter:grayscale(100%)
+}
+
+.genre-card::after{
+    content: "";
+    position:absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        90deg,
+        rgba(16, 15, 14, 0.97) 0%,
+        rgba(16, 15, 14, 0.82) 50%,
+        rgba(16, 15, 14, 0.45) 100%
+    );
+
+}
+
+/*give each card its own image*/
+.jazz-card::before{
+   background-image: url("../Assets/Images/free-trumpet-420.jpg");
+}
+
+.Amapiano-card::before{
+   background-image: url("../Assets/Images/piano.avif");}
+
+   .kwaito-card::before{
+   background-image: url("../Assets/Images/Kwaito\ bg.jpg");}
+
+   .maskandi-card::before{
+   background-image: url("../Assets/Images/maskandi\ guitar.jpeg");}
+
+.lekompo-card::before{
+   background-image: url("../Assets/Images/drums.jpeg");}
+
+
+
+/*card number*/
+.gerne-number{
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    color: #B9563E;
+    font-family: "poppins" , sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.genre-number span{
+    color: #A69A90;
+}
+
+.genre-number{
+    color: #e46a07;
+    font-weight: 400;
+}
+
+/*text content*/
+.genre-card-content h3{
+    margin: 0 0 15px;
+    color: #f1e8df;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.1;
+    font-family: "Playfair Display" , serif;
+}
+
+.genre-keywords{
+    color: #B9563E;
+    font-size: 11px;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.genre-description{
+    max-width: 440px;
+    color: #d5ccc3;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/*Explore linl*/
+
+.genre-link{
+    display:inline-block;
+    padding: 12px 22px;
+    border: 1px solid #B9563E;
+    border-radius: 3px;
+    color: #f1e8df;
+    font-family: "poppins" , sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.genre-link:hover{
+    background-color: #b9563e;
+}
+
+
+/*round arrow*/
+
+.genre-arrow{
+    position: absolute;
+    right: 35px;
+    bottom: 35px;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #B9563E;
+    border-radius: 50%;
+    color: #F1E8DF;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.genre-arrow:hover{
+    background-color: #B9563E;
+}
+
+.genre-description{
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+/*=======================================STORIES=========================*/
+
+.featured-stories{
+     margin-left:40px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 30px;
+}
+
+.featured-stories h3{
+    font-size:32px;
+    font-weight: 200;
+    font-style: normal;
+    margin-top: -30px;
+    color: white;   
+}
+
+

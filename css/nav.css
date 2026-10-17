@@ -1,0 +1,153 @@
+body{
+    background-color:#171715;
+    margin: 0;
+    color: white;
+    
+}
+
+.nav-bar li{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:20px;
+  
+ 
+}
+
+/*=======search input section========*/
+.search-container{
+    position:relative;
+    width: 320px;
+    margin-right: 50px;
+}
+
+.search-icon{
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e8d8c4;
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.search-bar{
+    width: 100%;
+    height: 42px;
+    padding: 0 14px 0 42px;
+    box-sizing: border-box;
+    background: #171715;
+    color: white;
+    border: 1px solid #B8A58C;
+    border-radius: 16px;
+    font-family: "cairo", sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 025s ease;
+    box-shadow: 0.25s ease;   
+}
+
+
+/*underline transtion for hover state*/
+.nav-bar a{
+    position: relative;
+}
+
+/*underline*/
+.nav-bar a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #e28973;
+    transform: scaleX(0);
+
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-bar a:hover::after{
+    transform: scaleX(1);
+}
+
+/*navigation bar*/
+.navigation-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+   .search-bar::placeholder{
+    color: #999999;
+    opacity: 1;
+   }
+
+.search-bar:hover{
+    border-color: #e8d8c4;
+}
+
+.search-bar:focus{
+    border-color: #b66450;
+    box-shadow: 0 0 0 4px rgba(226, 137, 115, 0.18);
+}
+
+/*logo*/
+.navigation-bar img{
+    width: 150px;
+    height: auto;
+    margin-left: 40px;
+}
+
+/*navigation links*/
+.nav-bar{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.navigation-section{
+    background-color:#171715;
+    height: 80px;
+    justify-content: space-between;
+    position: fixed;
+    margin: 0;
+    width: 100%;
+    z-index: 999;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    
+
+}
+
+/*navigation links*/
+.nav-bar a{
+    color: white;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif; 
+    font-weight: 400; 
+}
+
+.nav-bar li.active a{
+    font-weight: 800;
+    color: white;
+
+}
+
+/*active underline*/
+.nav-bar li.active a::after{
+    background-color: #B9563E;
+    transform: scaleX(1);
+    bottom: -4px;
+    height: 4px;
+}
