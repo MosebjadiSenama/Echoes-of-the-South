@@ -1,37 +1,186 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genres</title>
-<!--Js link-->
-    <script src="../js/genres.js"></script>
 
-<!--css link-->
-<link rel="stylesheet" href="../css/genre.css">
-<link rel="stylesheet" href="../css/nav.css">
+    <title>Stories | Echoes of the South</title>
 
-<!--Google fonts-->
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/stories.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Coda:wght@400;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="../js/stories.js" defer></script>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Coda:wght@400;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-<!--============================================================NAVIGATION BAR=================================================-->
 
-<section class="navigation-section">
-    <div class="navigation-bar">
-    <img src="../Assets/Logo/Frame 64.png" alt="logo">
-<ul class="nav-bar">
-    <li class=><a href="home.html">Home</a></li>
-    <li class=><a href="Artists.html">Artists</a></li>
-    <li class=><a href="Genres.html">Genres</a></li>
-    <li class="active"><a href="Stories.html">Stories</a></li>
-</ul>
-</div>
-</section>
+    <!-- ============================================================
+         01. NAVIGATION BAR
+    ============================================================= -->
 
-<h1>Stories</h1>
+    <section class="navigation-section">
+
+        <div class="navigation-bar">
+
+            <img src="../Assets/Logo/Frame 64.png" alt="Echoes of the South logo">
+
+            <ul class="nav-bar">
+                <li><a href="home.html">Home</a></li>
+                <li ><a href="Artists.html">Artists</a></li>
+                <li><a href="Genres.html">Genres</a></li>
+                <li class="active"><a href="Stories.html">Stories</a></li>
+            </ul>
+
+            <!-- SEARCH INPUT -->
+
+            <div class="search-container">
+                <span class="search-icon">⌕</span>
+
+                <input
+                    class="search-bar"
+                    id="artistSearch"
+                    type="search"
+                    placeholder="Search for artists, genres and stories"
+                    aria-label="Search artists"
+                >
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================================================
+         STORIES INTRODUCTION
+    ============================================================ -->
+
+    <main class="stories-page">
+
+        <section class="stories-intro">
+
+            <div class="stories-heading">
+                <p class="section-eyebrow">THE STORIES BEHIND THE SOUND</p>
+
+                <h1>Stories</h1>
+
+                <p>
+                    Explore moments, movements and people that shaped
+                    the sounds of South Africa.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ============================================================
+             STORY CATEGORIES
+        ============================================================ -->
+
+        <section class="stories-explorer">
+
+            <div class="story-filters" aria-label="Filter stories">
+
+                <button class="story-filter active"
+                        data-category="all"
+                        aria-pressed="true">
+                    All
+                </button>
+
+                <button class="story-filter"
+                        data-category="history"
+                        aria-pressed="false">
+                    History
+                </button>
+
+                <button class="story-filter"
+                        data-category="culture"
+                        aria-pressed="false">
+                    Culture
+                </button>
+
+                <button class="story-filter"
+                        data-category="people"
+                        aria-pressed="false">
+                    People
+                </button>
+
+                <button class="story-filter"
+                        data-category="movements"
+                        aria-pressed="false">
+                    Movements
+                </button>
+
+                <button class="story-filter"
+                        data-category="protest"
+                        aria-pressed="false">
+                    Protest
+                </button>
+
+                <button class="story-filter"
+                        data-category="global-influence"
+                        aria-pressed="false">
+                    Global Influence
+                </button>
+
+            </div>
+
+            <!-- ============================================================
+                 STORIES CONTENT
+            ============================================================ -->
+
+            <div class="stories-status">
+
+                <p id="storiesLoading" hidden>
+                    Loading stories...
+                </p>
+
+                <div id="storiesError" hidden>
+                    <p>Stories could not be loaded.</p>
+                    <button id="retryStories" type="button">
+                        Try again
+                    </button>
+                </div>
+
+                <p id="storiesEmpty" hidden>
+                    No stories found in this category.
+                </p>
+
+            </div>
+
+            <div class="stories-grid" id="storiesGrid">
+
+                <!-- Story cards will be generated using JavaScript -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+
+    <footer class="site-footer">
+
+        <p>Echoes of the South</p>
+
+        <p>
+            Preserving the sounds, stories and cultural heritage
+            of South African music.
+        </p>
+
+    </footer>
+
 </body>
 </html>

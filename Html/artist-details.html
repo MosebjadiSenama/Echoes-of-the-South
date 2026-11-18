@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Artist Profile | Echoes of the South</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Cairo:wght@200;300;400;500;600;700&family=Coda:wght@400;800&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/artist.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/artist-details.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ============================================================
+         NAVIGATION
+    ============================================================ -->
+
+    <section class="navigation-section">
+
+        <div class="navigation-bar">
+
+            <img src="../Assets/Logo/Frame 64.png" alt="Echoes of the South logo">
+
+            <ul class="nav-bar">
+
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Artists.html">Artists</a></li>
+                <li><a href="Genres.html">Genres</a></li>
+                <li><a href="Stories.html">Stories</a></li>
+
+            </ul>
+
+            <div class="search-container">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    class="search-bar"
+                    type="search"
+                    placeholder="Search for artists, genres and stories"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         ARTIST PROFILE
+    ============================================================ -->
+
+    <main class="artist-details-page">
+
+        <!-- BACK BUTTON -->
+
+        <a href="Artists.html" class="artist-back-button">
+            ←
+        </a>
+
+
+        <!-- ========================================================
+             ARTIST INTRODUCTION
+        ======================================================== -->
+
+        <section class="artist-profile">
+
+            <div class="artist-profile-image">
+
+                <img
+                    id="artistImage"
+                    src=""
+                    alt="Artist photograph"
+                >
+
+            </div>
+
+
+            <div class="artist-profile-information">
+
+
+                <h1 id="artistName">Loading artist...</h1>
+
+                <p id="artistYears" class="artist-years"></p>
+
+                <p id="artistIdentity" class="artist-identity"></p>
+
+                <p id="artistBiography" class="artist-biography">
+                    Loading artist information...
+                </p>
+
+                <div id="artistGenres" class="artist-genre-tags"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================
+             FEATURED SONG PLAYER
+        ======================================================== -->
+
+        <section class="featured-song">
+
+            <div class="featured-song-artwork">
+
+                <img
+                    id="featuredSongImage"
+                    src=""
+                    alt="Featured song artwork"
+                >
+
+            </div>
+
+            <div class="featured-song-information">
+
+                <h3 id="featuredSongTitle">Featured Song</h3>
+
+                <p id="featuredSongArtist"></p>
+
+            </div>
+
+            <div class="featured-song-waveform">
+                <div class="waveform" id="audioWaveform"></div>
+            </div>
+
+            <audio id="artistAudio" preload="none"></audio>
+
+            <button
+                id="playFeaturedSong"
+                class="featured-song-play"
+                type="button"
+                aria-label="Play featured song"
+            >
+                ▶
+            </button>
+
+        </section>
+
+
+        <!-- ========================================================
+             ARTIST CONTENT TABS
+        ======================================================== -->
+
+        <section class="artist-content-section">
+
+            <div class="artist-tabs">
+
+                <button
+                    class="artist-tab active"
+                    data-tab="songs"
+                    type="button"
+                >
+                    Popular Songs
+                </button>
+
+                <button
+                    class="artist-tab"
+                    data-tab="biography"
+                    type="button"
+                >
+                    Biography
+                </button>
+
+                <button
+                    class="artist-tab"
+                    data-tab="gallery"
+                    type="button"
+                >
+                    Gallery
+                </button>
+
+            </div>
+
+
+            <!-- ====================================================
+                 POPULAR SONGS
+            ==================================================== -->
+
+            <div
+                class="artist-tab-content active"
+                id="songsContent"
+            >
+
+                <div class="artist-songs-list" id="artistSongs">
+
+                    <p>Loading popular songs...</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ====================================================
+                 BIOGRAPHY
+            ==================================================== -->
+
+            <div
+                class="artist-tab-content"
+                id="biographyContent"
+                hidden
+            >
+
+                <div class="artist-full-biography" id="fullBiography">
+
+                    <p>Loading biography...</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ====================================================
+                 GALLERY
+            ==================================================== -->
+
+            <div
+                class="artist-tab-content"
+                id="galleryContent"
+                hidden
+            >
+
+                <div class="artist-gallery" id="artistGallery"></div>
+
+            </div>
+
+
+        </section>
+
+
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+
+    <footer class="artist-details-footer">
+
+        <p>© Echoes of the South. Celebrating South African music and heritage.</p>
+
+    </footer>
+
+</body>
+</html>

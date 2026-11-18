@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Genre Details | Echoes of the South</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/genre.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="../js/genres.js" defer></script>
+</head>
+
+<body>
+
+    <!-- BACK TO GENRES -->
+    <a href="Genres.html" class="back-to-genres">
+        Back to genres
+    </a>
+
+
+    <!-- GENRE HERO -->
+    <section class="genre-hero">
+
+        <div class="genre-hero-content">
+
+            <p class="genre-label">GENRE</p>
+
+            <h1 id="genreName">Loading genre...</h1>
+
+            <p id="genreEra" class="genre-era">
+                SOUTH AFRICAN MUSIC
+            </p>
+
+            <p id="genreDescription" class="genre-description">
+                Discover the sound, history and cultural influence of this genre.
+            </p>
+
+            <button
+                id="playGenreButton"
+                class="play-genre-button"
+                type="button"
+            >
+                <span id="playGenreIcon">▶</span>
+                <span id="playGenreText">Listen to the sound</span>
+                <span aria-hidden="true">→</span>
+            </button>
+
+        </div>
+
+
+        <!-- VINYL RECORD -->
+        <div class="genre-vinyl-container">
+
+            <div class="genre-vinyl" id="genreVinyl">
+
+                <div class="vinyl-label">
+
+                    <img
+                        id="vinylCover"
+                        src=""
+                        alt="Album cover of the currently playing song"
+                    >
+
+                </div>
+
+                <button
+                    id="vinylPlayButton"
+                    class="vinyl-play-button"
+                    type="button"
+                    aria-label="Play music"
+                >
+                    ▶
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- SHARED AUDIO PLAYER -->
+        <audio id="genreAudio" preload="none"></audio>
+
+    </section>
+
+
+
+    <!-- GENRE NAVIGATION TABS -->
+    <section class="genre-details">
+
+        <button
+            class="active"
+            data-section="featured-tracks"
+            aria-pressed="true"
+        >
+            Featured tracks
+        </button>
+
+        <button
+            data-section="timeline"
+            aria-pressed="false"
+        >
+            Timeline
+        </button>
+
+        <button
+            data-section="genre-connections"
+            aria-pressed="false"
+        >
+            Genre connections
+        </button>
+
+        <button
+            data-section="featured-artists"
+            aria-pressed="false"
+        >
+            Featured artists
+        </button>
+
+    </section>
+
+
+
+    <!-- FEATURED TRACKS -->
+    <section class="genre-music" id="featured-tracks">
+
+        <div class="tracks-heading">
+
+            <div>
+                <p class="tracks-eyebrow">THE SOUND OF THE GENRE</p>
+
+                <h2>Featured tracks</h2>
+
+                <p class="tracks-subtitle">
+                    Discover the songs that define this sound.
+                </p>
+            </div>
+
+            <span id="trackCount" class="track-count">
+                Loading tracks...
+            </span>
+
+        </div>
+
+
+        <!-- SONG LIST -->
+        <div id="genreTracks" class="genre-tracks">
+
+
+        </div>
+
+    </section>
+
+
+    <!-- OTHER GENRE SECTIONS -->
+    <section id="timeline" hidden></section>
+    <section id="genre-connections" hidden></section>
+    <section id="featured-artists" hidden></section>
+
+
+</body>
+</html>

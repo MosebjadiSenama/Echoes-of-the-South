@@ -1,37 +1,183 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genres</title>
-<!--Js link-->
-    <script src="../js/genres.js"></script>
+    <meta name="description" content="Explore the sounds, rhythms and musical heritage of South Africa.">
+    <title>Genres | Echoes of the South</title>
 
-<!--css link-->
-<link rel="stylesheet" href="../css/genre.css">
-<link rel="stylesheet" href="../css/nav.css">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!--Google fonts-->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Coda:wght@400;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/genre.css">
 </head>
+
 <body>
-<!--============================================================NAVIGATION BAR=================================================-->
 
-<section class="navigation-section">
-    <div class="navigation-bar">
-    <img src="../Assets/Logo/Frame 64.png" alt="logo">
-<ul class="nav-bar">
-    <li class=><a href="home.html">Home</a></li>
-    <li class=><a href="Artists.html">Artists</a></li>
-    <li class="active"><a href="Genres.html">Genres</a></li>
-    <li class=><a href="Stories.html">Stories</a></li>
-</ul>
-</div>
-</section>
+    <!-- =====================================================
+         01. NAVIGATION
+    ====================================================== -->
 
-<h1>Genres</h1>
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="../index.html" class="logo">Echoes<span> of the South</span></a>
+
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="Artists.html">Artists</a>
+                <a href="Genres.html" class="active">Genres</a>
+                <a href="Stories.html">Stories</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+
+    <!-- =====================================================
+         02. GENRE HERO
+    ====================================================== -->
+
+    <main>
+
+        <section class="genre-hero">
+            <div class="genre-hero-content">
+                <span class="eyebrow">THE SOUNDS OF SOUTH AFRICA</span>
+
+                <h1>Explore the <em>Genres</em></h1>
+
+                <p>
+                    Discover the rhythms, stories and musical movements
+                    that shape South Africa's diverse soundscape.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             03. GENRE DISCOVERY
+        ====================================================== -->
+
+        <section class="genre-explorer">
+
+            <div class="genre-section-heading">
+                <div>
+                    <span class="eyebrow">FIND YOUR SOUND</span>
+                    <h2>Explore the collection</h2>
+                </div>
+
+                <p id="genreCount" aria-live="polite">Loading genres...</p>
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="genre-search-container">
+                <label for="genreSearch" class="sr-only">Search genres</label>
+
+                <input
+                    type="search"
+                    id="genreSearch"
+                    class="genre-search"
+                    placeholder="Search a genre..."
+                    autocomplete="off"
+                >
+            </div>
+
+
+            <!-- CATEGORY FILTERS -->
+
+            <div class="genre-filters" aria-label="Filter genres by category">
+
+                <button class="genre-filter active" data-category="all">All Genres</button>
+
+                <button class="genre-filter" data-category="traditional">
+                    Indigenous & Traditional
+                </button>
+
+                <button class="genre-filter" data-category="township">
+                    Township & Heritage
+                </button>
+
+                <button class="genre-filter" data-category="jazz">
+                    Jazz & Soul
+                </button>
+
+                <button class="genre-filter" data-category="dance">
+                    Electronic & Dance
+                </button>
+
+                <button class="genre-filter" data-category="gospel">
+                    Gospel & Choral
+                </button>
+
+                <button class="genre-filter" data-category="urban">
+                    Hip-Hop & Urban
+                </button>
+
+                <button class="genre-filter" data-category="alternative">
+                    Pop, Rock & Alternative
+                </button>
+
+            </div>
+
+
+            <!-- LOADING STATE -->
+
+            <div class="genre-status" id="genreLoading" role="status">
+                <div class="loading-spinner"></div>
+                <p>Discovering South African sounds...</p>
+            </div>
+
+
+            <!-- ERROR STATE -->
+
+            <div class="genre-status error-state" id="genreError" hidden>
+                <p>Something went wrong while loading the genres.</p>
+                <button id="retryGenres" class="retry-button">Try again</button>
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div class="genre-status empty-state" id="genreEmpty" hidden>
+                <h3>No genres found</h3>
+                <p>Try another search or select a different category.</p>
+            </div>
+
+
+            <!-- GENRE CARDS -->
+
+            <div class="genre-grid" id="genreGrid"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         04. FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+        <p>Echoes of the South &copy; 2026. Celebrating South African music.</p>
+    </footer>
+
+
+    <!-- =====================================================
+         05. JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/genres.js" defer></script>
+
 </body>
 </html>

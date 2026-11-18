@@ -1,0 +1,1157 @@
+
+body {
+    font-family: "Cairo", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    background-color: #11100F;
+    color: #F1E8DF;
+    margin: 0;
+}
+
+
+/* ============================================================
+   02. ARTISTS INTRODUCTION
+============================================================ */
+
+.artists-intro {
+    padding: 65px 6% 55px;
+    background-color: #11100F;
+}
+
+.artists-intro-content {
+    max-width: 800px;
+}
+
+.artists-eyebrow {
+    display: block;
+    color:fffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.artists-intro h1 {
+    color:white;
+    font-family: "Alfa Slab One", serif;
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 400;
+    margin: 0 0 12px;
+}
+
+.artists-intro p {
+    color: #F1E8DF;
+    font-family: "Cairo", sans-serif;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0;
+}
+
+
+/* ============================================================
+   03. ARTIST EXPLORER
+============================================================ */
+
+.artists-explorer {
+    padding: 55px 6% 90px;
+    background-color: #131212;
+}
+
+.artists-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.artists-heading h2 {
+    color: #7E2E1B;
+    font-family: "Alfa Slab One", serif;
+    font-size: 35px;
+    font-weight: 400;
+    margin: 0 0 8px;
+}
+
+.artists-heading div > p {
+    color: #F1E8DF;
+    font-size: 19px;
+    margin: 0;
+}
+
+#artistCount {
+    color: #B9563E;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+   04. ARTIST FILTERS
+============================================================ */
+
+.artist-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.artist-filter {
+    padding: 10px 19px;
+    border: 1px solid #49353E;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #F1E8DF;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.artist-filter:hover {
+    border-color: #B9563E;
+    color: #B9563E;
+}
+
+.artist-filter.active {
+    background-color: #B9563E;
+    border-color: #B9563E;
+    color: white;
+    font-weight: 500;
+}
+
+
+/* ============================================================
+   05. ARTIST GRID
+============================================================ */
+
+.artists-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    align-items: start;
+}
+
+
+/* ============================================================
+   06. ARTIST CARD
+============================================================ */
+
+.artist-card {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    background-color: #0C0C0C;
+    border: 1px solid #ECCAC2;
+    border-radius: 10px;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.artist-card:hover {
+    transform: translateY(-5px);
+    border-color: #B9563E;
+}
+
+.artist-card-image {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    background-color: #201C19;
+}
+
+.artist-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(100%);
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+.artist-card:hover .artist-card-image img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+
+/* ARTIST IMAGE OVERLAY */
+
+.artist-card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.35),
+        transparent 55%
+    );
+    pointer-events: none;
+}
+
+
+/* ARTIST CARD ARROW */
+
+.artist-card-arrow {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #B9563E;
+    color: white;
+    font-size: 19px;
+    opacity: 0;
+    transform: translateY(5px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.artist-card:hover .artist-card-arrow,
+.artist-card:focus-visible .artist-card-arrow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ARTIST INFORMATION */
+
+.artist-card-info {
+    padding: 15px 12px;
+    background-color: #0C0C0C;
+}
+
+.artist-card-info h3 {
+    color: white;
+    font-family: "Cairo", sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 0 0 5px;
+}
+
+.artist-card-info p {
+    color: #D5CCC3;
+    font-size: 12px;
+    font-weight: 200;
+    margin: 0;
+}
+
+
+/* ARTIST CARD GENRE TAGS */
+
+.artist-card-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.artist-card-genres span {
+    color: #B9563E;
+    font-family: "Poppins", sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+}
+
+
+/* KEYBOARD ACCESSIBILITY */
+
+.artist-card:focus-visible {
+    outline: 2px solid #B9563E;
+    outline-offset: 4px;
+}
+
+
+/* ============================================================
+   07. IMAGE PLACEHOLDER
+============================================================ */
+
+.artist-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #201C19;
+    color: #B9563E;
+    font-family: "Playfair Display", serif;
+    font-size: 45px;
+}
+
+
+/* ============================================================
+   08. LOADING, ERROR AND EMPTY STATES
+============================================================ */
+
+.artists-status {
+    padding: 55px 20px;
+    text-align: center;
+    color: #F1E8DF;
+    font-size: 14px;
+}
+
+.artists-spinner {
+    width: 35px;
+    height: 35px;
+    margin: 0 auto 18px;
+    border: 3px solid rgba(185, 86, 62, 0.2);
+    border-top-color: #B9563E;
+    border-radius: 50%;
+    animation: artistLoading 0.8s linear infinite;
+}
+
+@keyframes artistLoading {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.artists-error h3,
+.artists-empty h3 {
+    color: #B9563E;
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.artists-error p,
+.artists-empty p {
+    color: #D5CCC3;
+    font-size: 13px;
+}
+
+.artists-error button {
+    padding: 11px 22px;
+    background-color: #B9563E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   09. LOAD MORE BUTTON
+============================================================ */
+
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+
+.load-more-button {
+    padding: 13px 28px;
+    background-color: transparent;
+    color: #F1E8DF;
+    border: 1px solid #B9563E;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.load-more-button:hover {
+    background-color: #B9563E;
+}
+
+
+/* ============================================================
+   10. FOOTER
+============================================================ */
+
+.artists-footer {
+    padding: 25px 20px;
+    border-top: 1px solid #49353E;
+    background-color: #11100F;
+    text-align: center;
+}
+
+.artists-footer p {
+    color: #D5CCC3;
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   11. TABLET RESPONSIVENESS
+============================================================ */
+
+@media (max-width: 1000px) {
+
+    .artists-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .artist-card-image {
+        height: 190px;
+    }
+}
+
+
+/* ============================================================
+   12. MOBILE RESPONSIVENESS
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .artists-intro {
+        padding: 50px 5% 40px;
+    }
+
+    .artists-intro h1 {
+        font-size: 45px;
+    }
+
+    .artists-intro p {
+        font-size: 17px;
+    }
+
+    .artists-explorer {
+        padding: 40px 5% 65px;
+    }
+
+    .artists-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .artists-heading h2 {
+        font-size: 29px;
+    }
+
+    .artists-heading div > p {
+        font-size: 15px;
+    }
+
+    .artist-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 12px;
+        scrollbar-width: thin;
+        scrollbar-color: #B9563E #201C19;
+    }
+
+    .artist-filter {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    .artists-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    .artist-card-image {
+        height: 170px;
+    }
+
+    .artist-card-info {
+        padding: 12px 9px;
+    }
+
+    .artist-card-info h3 {
+        font-size: 14px;
+    }
+
+    .artist-card-info p {
+        font-size: 11px;
+    }
+
+}
+
+
+/* ============================================================
+   13. SMALL MOBILE SCREENS
+============================================================ */
+
+@media (max-width: 420px) {
+
+    .artists-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .artist-card-image {
+        height: 135px;
+    }
+
+    .artist-card-info h3 {
+        font-size: 12px;
+    }
+
+    .artist-card-info p {
+        font-size: 10px;
+    }
+
+    .artist-card-genres span {
+        font-size: 8px;
+    }
+
+}
+
+
+
+/*=============================================================================================================artists detailed page*******************************************************/
+
+
+/* ============================================================
+   ARTIST DETAILS PAGE
+============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #11100F;
+    color: #F1E8DF;
+    font-family: "Cairo", sans-serif;
+}
+
+.artist-details-page {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 65px 6% 80px;
+}
+
+
+/* ============================================================
+   BACK BUTTON
+============================================================ */
+
+.artist-back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    margin-bottom: 12px;
+
+    color: #F1E8DF;
+    font-size: 27px;
+    text-decoration: none;
+
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.artist-back-button:hover {
+    color: #B9563E;
+    transform: translateX(-4px);
+}
+
+
+/* ============================================================
+   ARTIST PROFILE INTRODUCTION
+============================================================ */
+
+.artist-profile {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: 42px;
+
+    margin-bottom: 30px;
+}
+
+.artist-profile-image {
+    width: 100%;
+    height: 340px;
+
+    overflow: hidden;
+    border: 1px solid #49353E;
+    border-radius: 10px;
+
+    background: #1B1918;
+}
+
+.artist-profile-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: grayscale(100%);
+
+    transition: filter 0.4s ease, transform 0.5s ease;
+}
+
+.artist-profile-image:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
+
+.artist-profile-information {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.artist-profile-eyebrow {
+    margin: 0 0 12px;
+
+    color: #B9563E;
+    font-family: "Coda", sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.artist-profile-information h1 {
+    margin: 0 0 8px;
+
+    color: #F1E8DF;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.artist-years {
+    margin: 0 0 12px;
+
+    color: #F1E8DF;
+    font-family: "Coda", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.artist-identity {
+    margin: 0 0 15px;
+
+    color: #D0B9A9;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.artist-biography {
+    max-width: 600px;
+    margin: 0 0 20px;
+
+    color: #C5BDB7;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.9;
+}
+
+
+/* ============================================================
+   ARTIST GENRE TAGS
+============================================================ */
+
+.artist-genre-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.artist-genre-tag {
+    padding: 7px 19px;
+
+    border: 1px solid #66504A;
+    border-radius: 30px;
+
+    color: #E7D9CE;
+    font-size: 11px;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.artist-genre-tag:hover {
+    border-color: #B9563E;
+    background: #B9563E;
+    color: #FFFFFF;
+}
+
+
+/* ============================================================
+   FEATURED SONG PLAYER
+============================================================ */
+
+.featured-song {
+    display: grid;
+    grid-template-columns: 65px 1fr 1.3fr 55px;
+    align-items: center;
+    gap: 15px;
+
+    width: 100%;
+    min-height: 88px;
+
+    padding: 12px 18px;
+    margin-bottom: 35px;
+
+    border: 1px solid #B9563E;
+    border-radius: 12px;
+
+    background: #191716;
+}
+
+.featured-song-artwork {
+    width: 60px;
+    height: 60px;
+
+    overflow: hidden;
+    border-radius: 7px;
+    background: #292321;
+}
+
+.featured-song-artwork img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-song-information h3 {
+    margin: 0 0 4px;
+
+    color: #F1E8DF;
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+}
+
+.featured-song-information p {
+    margin: 0;
+
+    color: #A99B91;
+    font-size: 11px;
+}
+
+.featured-song-waveform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.waveform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+
+    width: 100%;
+    height: 45px;
+}
+
+.waveform span {
+    width: 3px;
+    min-height: 5px;
+
+    border-radius: 5px;
+    background: #D7A078;
+}
+
+.featured-song-play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #F28A45;
+    color: #FFFFFF;
+
+    font-size: 18px;
+    cursor: pointer;
+
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.featured-song-play:hover {
+    background: #B9563E;
+    transform: scale(1.07);
+}
+
+
+/* ============================================================
+   ARTIST CONTENT LAYOUT
+============================================================ */
+
+.artist-content-section {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    column-gap: 35px;
+    align-items: start;
+}
+
+.artist-tabs {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    grid-column: 1 / -1;
+
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #49353E;
+}
+
+.artist-tab {
+    position: relative;
+
+    padding: 8px 5px;
+
+    border: none;
+    background: transparent;
+
+    color: #E5D9D0;
+    font-family: "Cairo", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.artist-tab:hover,
+.artist-tab.active {
+    color: #E17B48;
+}
+
+.artist-tab.active::after {
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: #B9563E;
+    content: "";
+}
+
+
+/* ============================================================
+   TAB CONTENT
+============================================================ */
+
+.artist-tab-content {
+    display: none;
+    grid-column: 1 / -1;
+}
+
+.artist-tab-content.active {
+    display: block;
+}
+
+.artist-tab-content[hidden] {
+    display: none !important;
+}
+
+
+/* ============================================================
+   POPULAR SONGS
+============================================================ */
+
+.artist-songs-list {
+    width: 100%;
+}
+
+.artist-song {
+    display: grid;
+    grid-template-columns: 42px 1fr auto;
+    align-items: center;
+    gap: 15px;
+
+    min-height: 60px;
+    padding: 10px 5px;
+
+    border-bottom: 1px solid #3D3531;
+}
+
+.artist-song-play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #F1E8DF;
+    color: #171411;
+
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.artist-song-play:hover {
+    background: #F28A45;
+    color: #FFFFFF;
+}
+
+.artist-song-name {
+    color: #E8DDD5;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.artist-song-duration {
+    color: #C5BDB7;
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   FULL BIOGRAPHY
+============================================================ */
+
+.artist-full-biography {
+    max-width: 850px;
+
+    color: #C5BDB7;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.artist-full-biography p {
+    margin: 0 0 18px;
+}
+
+
+/* ============================================================
+   ARTIST GALLERY
+============================================================ */
+
+.artist-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.artist-gallery img {
+    width: 100%;
+    height: 180px;
+
+    object-fit: cover;
+    border-radius: 7px;
+
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.artist-gallery img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+
+.artist-details-footer {
+    padding: 25px 15px;
+
+    border-top: 1px solid #302724;
+
+    text-align: center;
+}
+
+.artist-details-footer p {
+    margin: 0;
+
+    color: #8E8179;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+
+/* ============================================================
+   TABLET RESPONSIVENESS
+============================================================ */
+
+@media (max-width: 900px) {
+
+    .artist-details-page {
+        padding: 25px 4% 60px;
+    }
+
+    .artist-profile {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .artist-profile-image {
+        height: 300px;
+    }
+
+    .featured-song {
+        grid-template-columns: 55px 1fr 1fr 45px;
+        gap: 10px;
+    }
+
+    .artist-content-section {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .artist-quote-section {
+        min-height: 220px;
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE RESPONSIVENESS
+============================================================ */
+
+@media (max-width: 600px) {
+
+    .artist-details-page {
+        padding: 18px 5% 45px;
+    }
+
+    .artist-back-button {
+        margin-bottom: 10px;
+    }
+
+    .artist-profile {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .artist-profile-image {
+        height: 270px;
+    }
+
+    .artist-profile-information h1 {
+        font-size: 34px;
+    }
+
+    .artist-profile-eyebrow {
+        font-size: 8px;
+    }
+
+    .artist-biography {
+        font-size: 12px;
+    }
+
+    .featured-song {
+        grid-template-columns: 48px 1fr 45px;
+        gap: 10px;
+
+        padding: 12px;
+    }
+
+    .featured-song-artwork {
+        width: 48px;
+        height: 48px;
+    }
+
+    .featured-song-information h3 {
+        font-size: 13px;
+    }
+
+    .featured-song-waveform {
+        display: none;
+    }
+
+    .featured-song-play {
+        width: 42px;
+        height: 42px;
+    }
+
+    .artist-tabs {
+        gap: 20px;
+        overflow-x: auto;
+    }
+
+    .artist-tab {
+        flex-shrink: 0;
+        font-size: 13px;
+    }
+
+    .artist-song {
+        grid-template-columns: 35px 1fr auto;
+        gap: 10px;
+    }
+
+    .artist-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .artist-gallery img {
+        height: 135px;
+    }
+
+    .artist-quote-section {
+        min-height: 220px;
+        padding: 25px;
+    }
+
+    .artist-quote-section blockquote {
+        font-size: 19px;
+    }
+
+}
+
+
+/* ============================================================
+   SMALL MOBILE SCREENS
+============================================================ */
+
+@media (max-width: 380px) {
+
+    .artist-profile-image {
+        height: 225px;
+    }
+
+    .artist-profile-information h1 {
+        font-size: 29px;
+    }
+
+    .artist-tabs {
+        gap: 12px;
+    }
+
+    .artist-tab {
+        font-size: 12px;
+    }
+
+}

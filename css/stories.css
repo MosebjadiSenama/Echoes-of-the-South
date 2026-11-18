@@ -1,0 +1,471 @@
+
+/* ============================================================
+   01. GENERAL STORIES PAGE
+============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #11100F;
+    color: #F1E8DF;
+    font-family: "Cairo", sans-serif;
+    font-weight: 200;
+}
+
+
+/* ============================================================
+   02. STORIES INTRODUCTION
+============================================================ */
+
+.stories-intro {
+    padding: 65px 6% 55px;
+    background-color: #11100F;
+}
+
+.stories-heading {
+    max-width: 800px;
+}
+
+.section-eyebrow {
+    display: block;
+    margin-bottom: 15px;
+    color: #B9563E;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.stories-heading h1 {
+    margin: 0 0 12px;
+    color: white;
+    font-family: "Alfa Slab One", serif;
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 400;
+}
+
+.stories-heading > p:last-child {
+    max-width: 650px;
+    margin: 0;
+    color: #F1E8DF;
+    font-family: "Cairo", sans-serif;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   03. STORIES EXPLORER
+============================================================ */
+
+.stories-explorer {
+    padding: 55px 6% 90px;
+    background-color: #131212;
+}
+
+
+/* ============================================================
+   04. STORY FILTERS
+============================================================ */
+
+.story-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.story-filter {
+    padding: 10px 19px;
+    border: 1px solid #49353E;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #F1E8DF;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.story-filter:hover {
+    border-color: #B9563E;
+    color: #B9563E;
+}
+
+.story-filter.active {
+    background-color: #B9563E;
+    border-color: #B9563E;
+    color: white;
+    font-weight: 500;
+}
+
+
+/* ============================================================
+   05. STORIES GRID
+============================================================ */
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    align-items: start;
+}
+
+
+/* ============================================================
+   06. STORY CARD
+============================================================ */
+
+.story-card {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr) 40px;
+    align-items: center;
+    gap: 22px;
+    min-width: 0;
+    padding: 12px;
+    overflow: hidden;
+
+    color: inherit;
+    text-decoration: none;
+    background-color: #0C0C0C;
+    border: 1px solid #49353E;
+    border-radius: 10px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-4px);
+    border-color: #B9563E;
+}
+
+
+/* ============================================================
+   07. STORY IMAGE
+============================================================ */
+
+.story-card-image {
+    position: relative;
+    width: 100%;
+    height: 145px;
+    overflow: hidden;
+    border-radius: 7px;
+    background-color: #201C19;
+}
+
+.story-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%);
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+.story-card:hover .story-card-image img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.story-card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.35),
+        transparent 55%
+    );
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   08. STORY INFORMATION
+============================================================ */
+
+.story-card-content {
+    min-width: 0;
+}
+
+.story-card-content h2 {
+    margin: 0 0 7px;
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.story-card-content p {
+    margin: 0 0 12px;
+    color: #D5CCC3;
+    font-family: "Cairo", sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+
+/* ============================================================
+   09. STORY CATEGORY TAGS
+============================================================ */
+
+.story-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.story-tag {
+    color: #B9563E;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+
+/* ============================================================
+   10. STORY CARD ARROW
+============================================================ */
+
+.story-card-arrow {
+    display: grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #B9563E;
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.story-card:hover .story-card-arrow,
+.story-card:focus-visible .story-card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* ============================================================
+   11. IMAGE PLACEHOLDER
+============================================================ */
+
+.story-card-image.image-unavailable {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #201C19;
+}
+
+.story-card-image.image-unavailable::after {
+    content: "ECHOES OF THE SOUTH";
+    position: static;
+    color: #B9563E;
+    font-family: "Playfair Display", serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+
+/* ============================================================
+   12. LOADING, ERROR AND EMPTY STATES
+============================================================ */
+
+.stories-status {
+    padding: 35px 20px;
+    color: #F1E8DF;
+    font-size: 14px;
+    text-align: center;
+}
+
+.stories-status p {
+    color: #D5CCC3;
+}
+
+#storiesError {
+    padding: 30px 20px;
+    border: 1px solid #49353E;
+    border-radius: 10px;
+    background-color: #0C0C0C;
+}
+
+#storiesError p {
+    color: #D5CCC3;
+}
+
+#storiesError button {
+    padding: 11px 22px;
+    border: none;
+    border-radius: 5px;
+    background-color: #B9563E;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   13. FOOTER
+============================================================ */
+
+.site-footer {
+    padding: 25px 20px;
+    border-top: 1px solid #49353E;
+    background-color: #11100F;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+    color: #D5CCC3;
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   14. TABLET RESPONSIVENESS
+============================================================ */
+
+@media (max-width: 1000px) {
+
+    .story-card {
+        grid-template-columns: 165px minmax(0, 1fr) 35px;
+        gap: 17px;
+    }
+
+    .story-card-image {
+        height: 130px;
+    }
+
+}
+
+
+/* ============================================================
+   15. MOBILE RESPONSIVENESS
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .stories-intro {
+        padding: 50px 5% 40px;
+    }
+
+    .stories-heading h1 {
+        font-size: 45px;
+    }
+
+    .stories-heading > p:last-child {
+        font-size: 17px;
+    }
+
+    .stories-explorer {
+        padding: 40px 5% 65px;
+    }
+
+    .story-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 12px;
+        scrollbar-width: thin;
+        scrollbar-color: #B9563E #201C19;
+    }
+
+    .story-filter {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    .stories-grid {
+        gap: 15px;
+    }
+
+    .story-card {
+        grid-template-columns: 125px minmax(0, 1fr) 30px;
+        gap: 12px;
+        padding: 9px;
+    }
+
+    .story-card-image {
+        height: 115px;
+    }
+
+    .story-card-content h2 {
+        font-size: 16px;
+    }
+
+    .story-card-content p {
+        font-size: 11px;
+    }
+
+    .story-card-arrow {
+        width: 29px;
+        height: 29px;
+        font-size: 16px;
+    }
+
+}
+
+
+/* ============================================================
+   16. SMALL MOBILE SCREENS
+============================================================ */
+
+@media (max-width: 420px) {
+
+    .stories-heading h1 {
+        font-size: 40px;
+    }
+
+    .story-card {
+        grid-template-columns: 100px minmax(0, 1fr) 25px;
+        gap: 9px;
+    }
+
+    .story-card-image {
+        height: 100px;
+    }
+
+    .story-card-content h2 {
+        font-size: 14px;
+    }
+
+    .story-card-content p {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .story-tag {
+        font-size: 8px;
+    }
+
+    .story-card-arrow {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+
+}

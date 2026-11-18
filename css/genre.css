@@ -1,0 +1,593 @@
+
+/* =====================================================
+   01. GLOBAL STYLES
+===================================================== */
+
+:root {
+    --bg-dark: #11100f;
+    --bg-card: #1b1917;
+    --bg-soft: #24211f;
+    --accent: #e28973;
+    --accent-hover: #f0a08b;
+    --text-primary: #f4eee7;
+    --text-secondary: #aaa19a;
+    --border: rgba(255, 255, 255, 0.10);
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    min-height: 100vh;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* =====================================================
+   02. NAVIGATION
+===================================================== */
+
+.main-header {
+    width: 100%;
+    position: relative;
+    z-index: 100;
+    background: #11100f;
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    width: min(1200px, 90%);
+    min-height: 82px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+}
+
+
+/* =====================================================
+   03. GENRE HERO
+===================================================== */
+
+.genre-hero {
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(17, 16, 15, 0.76),
+            rgba(17, 16, 15, 0.94)
+        ),
+        url('../Assets/genre-hero.jpg') center/cover no-repeat;
+}
+
+.genre-hero::after {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: rgba(226, 137, 115, 0.08);
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.genre-hero-content {
+    max-width: 750px;
+    position: relative;
+    z-index: 1;
+}
+
+.eyebrow {
+    display: block;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.genre-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.genre-hero h1 em {
+    color: var(--accent);
+    font-weight: 400;
+}
+
+.genre-hero p {
+    max-width: 570px;
+    margin: auto;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   04. GENRE EXPLORER
+===================================================== */
+
+.genre-explorer {
+    width: min(1200px, 90%);
+    margin: auto;
+    padding: 75px 0 100px;
+}
+
+.genre-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.genre-section-heading .eyebrow {
+    margin-bottom: 10px;
+}
+
+.genre-section-heading h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 500;
+}
+
+#genreCount {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   05. SEARCH BAR
+===================================================== */
+
+.genre-search-container {
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.genre-search {
+    width: 100%;
+    max-width: 520px;
+    height: 52px;
+    padding: 0 20px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    outline: none;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 13px;
+    transition: border-color 0.3s ease;
+}
+
+.genre-search::placeholder {
+    color: #77716c;
+}
+
+.genre-search:focus {
+    border-color: var(--accent);
+}
+
+
+/* =====================================================
+   06. CATEGORY FILTERS
+===================================================== */
+
+.genre-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 42px;
+}
+
+.genre-filter {
+    padding: 11px 17px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 11px;
+    transition: all 0.3s ease;
+}
+
+.genre-filter:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.genre-filter.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #17110f;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   07. GENRE GRID
+===================================================== */
+
+.genre-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+
+/* =====================================================
+   08. GENRE CARDS
+===================================================== */
+
+.genre-card {
+    min-width: 0;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+    cursor: pointer;
+}
+
+.genre-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(226, 137, 115, 0.55);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.genre-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--bg-soft);
+}
+
+.genre-card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.genre-card:hover .genre-card-image img {
+    transform: scale(1.06);
+}
+
+.genre-card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.55),
+        transparent 65%
+    );
+    pointer-events: none;
+}
+
+.genre-card-content {
+    padding: 23px;
+}
+
+.genre-card-category {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.genre-card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.genre-card-content p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.8;
+    min-height: 65px;
+}
+
+.genre-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 20px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 500;
+    transition: gap 0.3s ease;
+}
+
+.genre-card:hover .genre-card-link {
+    gap: 15px;
+}
+
+
+/* =====================================================
+   09. LOADING, ERROR AND EMPTY STATES
+===================================================== */
+
+.genre-status {
+    text-align: center;
+    padding: 55px 20px;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.loading-spinner {
+    width: 35px;
+    height: 35px;
+    margin: 0 auto 18px;
+    border: 3px solid rgba(226, 137, 115, 0.2);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: genreSpin 0.8s linear infinite;
+}
+
+@keyframes genreSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-state p {
+    margin-bottom: 15px;
+}
+
+.retry-button {
+    padding: 10px 20px;
+    background: var(--accent);
+    border: none;
+    border-radius: 3px;
+    color: #17110f;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.empty-state h3 {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   10. FOOTER
+===================================================== */
+
+.site-footer {
+    padding: 28px 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.site-footer p {
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   11. TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .genre-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .genre-explorer {
+        width: 92%;
+    }
+
+    .genre-filters {
+        gap: 8px;
+    }
+
+    .genre-filter {
+        padding: 10px 13px;
+    }
+}
+
+
+/* =====================================================
+   12. MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        min-height: 70px;
+        width: 90%;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .genre-hero {
+        min-height: 310px;
+        padding: 65px 22px;
+    }
+
+    .genre-hero h1 {
+        font-size: 43px;
+    }
+
+    .genre-hero p {
+        font-size: 12px;
+    }
+
+    .genre-explorer {
+        width: 90%;
+        padding: 55px 0 70px;
+    }
+
+    .genre-section-heading {
+        align-items: start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .genre-section-heading h2 {
+        font-size: 30px;
+    }
+
+    .genre-search {
+        max-width: none;
+    }
+
+    .genre-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 12px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) var(--bg-card);
+    }
+
+    .genre-filter {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .genre-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .genre-card-image {
+        aspect-ratio: 16 / 9;
+    }
+
+    .genre-card-content {
+        padding: 20px;
+    }
+
+    .genre-card-content h3 {
+        font-size: 23px;
+    }
+
+    .genre-card-content p {
+        min-height: auto;
+    }
+}
+
+
+/* =====================================================
+   13. SMALL MOBILE SCREENS
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .genre-hero h1 {
+        font-size: 36px;
+    }
+
+    .genre-section-heading h2 {
+        font-size: 27px;
+    }
+
+    .genre-card-content {
+        padding: 17px;
+    }
+}
