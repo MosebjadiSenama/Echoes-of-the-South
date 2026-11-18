@@ -1,6 +1,6 @@
 
 /* ============================================================
-   SOUTH AFRICAN HISTORY ONLINE API PROXY
+   SOUTH AFRICAN HISTORY ONLINE TIMELINE API PROXY
 ============================================================ */
 
 exports.handler = async function (event) {
@@ -22,6 +22,8 @@ exports.handler = async function (event) {
         };
     }
 
+    /* Only allow GET requests */
+
     if (event.httpMethod !== "GET") {
         return {
             statusCode: 405,
@@ -34,45 +36,38 @@ exports.handler = async function (event) {
 
     try {
 
-        const params = new URLSearchParams();
+        /* Get the requested timeline decade */
 
-        params.set("page[limit]", "50");
-        params.set("sort", "-created");
+        const decade = event.queryStringParameters?.decade || "1960";
 
-        const offset = Number(
-            event.queryStringParameters?.offset || 0
-        );
-
-        if (!Number.isInteger(offset) || offset < 0) {
+        if (!/^\d{4}$/.test(decade) || Number(decade) % 10 !== 0) {
             return {
                 statusCode: 400,
                 headers,
                 body: JSON.stringify({
-                    error: "Invalid pagination offset"
+                    error: "Invalid decade"
                 })
             };
         }
 
-        params.set("page[offset]", String(offset));
+        /* Request events from SAHO */
 
         const apiURL =
-            `https://sahistory.org.za/jsonapi/node/article?${params.toString()}`;
+            `https://sahistory.org.za/api/timeline/v2/events/${decade}`;
 
         const response = await fetch(apiURL, {
-    headers: {
-        "Accept": "application/vnd.api+json",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://sahistory.org.za/"
-    }
-});
+            headers: {
+                "Accept": "application/json"
+            }
+        });
 
         if (!response.ok) {
-            throw new Error(
-                `SAHO returned status ${response.status}`
-            );
+            throw new Error(`SAHO returned status ${response.status}`);
         }
 
         const data = await response.json();
+
+        /* Return the timeline events */
 
         return {
             statusCode: 200,
@@ -82,13 +77,13 @@ exports.handler = async function (event) {
 
     } catch (error) {
 
-        console.error("SAHO proxy error:", error);
+        console.error("SAHO timeline proxy error:", error);
 
         return {
             statusCode: 502,
             headers,
             body: JSON.stringify({
-                error: "Unable to retrieve stories from South African History Online."
+                error: "Unable to retrieve historical events from South African History Online."
             })
         };
 
