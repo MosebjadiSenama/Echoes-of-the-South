@@ -83,8 +83,9 @@ exports.handler = async function (event) {
             statusCode: 502,
             headers,
             body: JSON.stringify({
-                error: "Unable to retrieve historical events from South African History Online."
-            })
+    error: "Unable to retrieve historical events from South African History Online.",
+    details: error.message
+})
         };
 
     }
