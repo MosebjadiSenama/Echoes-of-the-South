@@ -59,10 +59,12 @@ exports.handler = async function (event) {
             `https://sahistory.org.za/jsonapi/node/article?${params.toString()}`;
 
         const response = await fetch(apiURL, {
-            headers: {
-                "Accept": "application/vnd.api+json"
-            }
-        });
+    headers: {
+        "Accept": "application/vnd.api+json",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://sahistory.org.za/"
+    }
+});
 
         if (!response.ok) {
             throw new Error(
