@@ -95,7 +95,8 @@ const genreArtists = {
         "KayCherlow NLL",
         "Xduppy",
         "Master KG",
-        "Makhadzi Entertainment"
+        "Makhadzi Entertainment",
+        "Lil Meri"
     ],
 
     "Mbaqanga": [
@@ -198,12 +199,12 @@ const genreArtists = {
         "Reason",
         "Emtee",
         "Blxckie",
-        "Ami Faku",
+       ,
         "Gigi Lamayne",
         "Saudi"
     ],
 
-     "Tsa Manyalo": [
+    "Tsa Manyalo": [
     "Pleasure Tsa Manyalo",
     "Maredi Maredi",
     "Fourman",
@@ -230,6 +231,7 @@ const genreArtists = {
         "Simphiwe Dana",
         "Shekhinah",
         "Tyla",
+        "Ami Faku",
         "Nomcebo Zikode"
     ],
 
@@ -265,7 +267,8 @@ const genreArtists = {
         "Omega Khunou",
         "HLE",
         "Nqubeko Mbatha",
-        "Musa Yende"
+        "Musa Yende",
+        "Sbu Noah",
     ],
 
         "Isicathamiya": [
@@ -294,8 +297,48 @@ const genreArtists = {
         "TRESOR",
         "Musa",
         "Ciza",
-        "Bobby van Jaarsveld"
-    ]
+        "Bobby van Jaarsveld",
+        "Lloyiso",
+        
+    ],
+
+
+    "Afro soul": [
+        "Ami Faku",
+        "Simphiwe Dana",
+        "Zahara",
+        "Lira",
+        "Ringo Madlingozi",
+        "The soil",
+        "Amanda Black",
+        "Vusi Nova",
+        "Zahara"
+
+
+    ],
+
+
+"Reggae": [
+    "Lucky Dube",
+    "Carlos Djedje",
+    "Colbert Mukwevho",
+    "O'Yaba",
+    "Tidal Waves",
+    "Nkulee Dube",
+    "Thokozani Dube",
+    "Sister Phumi",
+    "Dr Victor and the Rasta Rebels",
+    "Dread Warriors",
+    "Haile and the Rasta Family",
+    "Kori Moraba",
+    "P. Postman",
+    "Thuthukani Cele",
+    "Saggy Saggila",
+    "The One People Band",
+    "Steve Kekana",
+    "Jahnett Tafari"
+]
+
 };
 
 
@@ -328,13 +371,15 @@ const categoryGenres = {
     jazz: [
         "Jazz",
         "Afro-jazz",
-        "Afro-soul"
+        "Afro-soul",
+       
     ],
 
     pop: [
         "Pop",
         "Afro-pop",
-        "Rock"
+        "Rock",
+        "Reggae"
     ],
 
     gospel: [
