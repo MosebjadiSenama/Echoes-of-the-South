@@ -1,7 +1,7 @@
 
 
 /* =========================================================
-   1. SOUTH AFRICAN MUSIC GENRE DATA
+   SOUTH AFRICAN MUSIC GENRE DATA
    ========================================================= */
 
 const genres = [
@@ -112,7 +112,7 @@ const genres = [
 
 
 /* =========================================================
-   2. SHARED ELEMENTS
+   SHARED ELEMENTS
    ========================================================= */
 
 const genreGrid = document.getElementById("genreGrid");
@@ -140,7 +140,7 @@ let activeTrackUrl = null;
 
 
 /* =========================================================
-   8. ITUNES MUSIC SEARCH
+   ITUNES MUSIC SEARCH
    ========================================================= */
 
 const southAfricanGenreArtists = {
@@ -149,7 +149,24 @@ const southAfricanGenreArtists = {
         "Bhekumuzi Luthuli",
         "Khuzani",
         "Mthandeni SK",
-        "Mtshengiseni Gcwensa"
+        "Mtshengiseni Gcwensa",
+        "Ihashi Elimhlophe",
+        "Mfaz' Omnyama",
+        "Mzukulu",
+        "Ntencane",
+        "Feza",
+        "Inkos'yamagcokama",
+        "Nkeshemba",
+        "Shiyani Ngcobo",
+        "Nkunzi",
+        "Khuzani",
+        "Umafikizolo",
+        "Mthandeni SK",
+        "Menzi Music",
+        "Umgqumeni",
+        "Umajotha",
+        "Limit"
+        
     ],
 
     "Lekompo": [
@@ -157,7 +174,19 @@ const southAfricanGenreArtists = {
         "Shandesh",
         "Kharishma",
         "Makhadzi",
-        "King Monada"
+        "King Monada",
+        "Janesh",
+        "Tribby wadi Bhozza",
+        "Quuen Terc", 
+        "Kaycherlow",
+        "Zoli White Smoke",
+        "Prince Benza",
+        "King Monada",
+        "Tsaka Rsa",
+        "Dj Gun do",
+        "Janisto",
+        "Dj call me",
+
     ],
 
     "Gqom": [
@@ -165,7 +194,12 @@ const southAfricanGenreArtists = {
         "Babes Wodumo",
         "Distruction Boyz",
         "Dladla Mshunqisi",
-        "Rudeboyz"
+        "Rudeboyz",
+        "Dj Tira",
+        "Mr Thela",
+        "Mshayi",
+        "Busiswa"
+
     ],
 
     "Isicathamiya": [
@@ -192,15 +226,31 @@ const southAfricanGenreArtists = {
     "Kwela": [
         "Spokes Mashiyane",
         "Lemmy Mabaso",
-        "Casper Temba"
+        "Casper Temba",
+        "Jack & Elias Lerole",
+        "Big Voice Jack"
+
     ],
 
     "Reggae": [
-        "Lucky Dube",
-        "Colbert Mukwevho",
-        "Carlos Djedje",
-        "O'Yaba",
-        "Nkulee Dube"
+    "Lucky Dube",
+    "Carlos Djedje",
+    "Colbert Mukwevho",
+    "O'Yaba",
+    "Tidal Waves",
+    "Nkulee Dube",
+    "Thokozani Dube",
+    "Sister Phumi",
+    "Dr Victor and the Rasta Rebels",
+    "Dread Warriors",
+    "Haile and the Rasta Family",
+    "Kori Moraba",
+    "P. Postman",
+    "Thuthukani Cele",
+    "Saggy Saggila",
+    "The One People Band",
+    "Steve Kekana",
+    "Jahnett Tafari"
     ],
 
     "Kwaito": [
@@ -210,7 +260,8 @@ const southAfricanGenreArtists = {
         "Boom Shaka",
         "Arthur Mafokate",
         "Zola",
-        "Trompies"
+        "Trompies",
+        "Winnie Khumalo"
     ],
 
     "Bubblegum": [
@@ -235,6 +286,8 @@ const southAfricanGenreArtists = {
         "Benjamin Dube",
         "Lundi Tyamara",
         "Khaya Mthethwa"
+
+
     ],
 
     "Motswako": [
@@ -252,7 +305,23 @@ const southAfricanGenreArtists = {
         "De Mthuda",
         "Mas Musiq",
         "Busta 929",
-        "Sam Deep"
+        "Sam Deep",
+        "Reece Madlisa",
+        "Zuma",
+        "Uncle Waffles",
+        "Young Stunna",
+        "Mawhoo",
+        "Nkosazana Daughter",
+        "Focalistic",
+        "Daliwonga",
+        "Thatohatsi",
+        "Babakwa M",
+        "Royal Musiq",
+        "Njelic",
+        "Xdupppy",
+        "Kamo Mpehla",
+        "Scotts Maphuma"
+
     ],
 
     "South African House": [
@@ -280,12 +349,14 @@ const southAfricanGenreArtists = {
         "Lira",
         "Amanda Black",
         "Vusi Nova",
-        "Kelly Khumalo"
+        "Kelly Khumalo",
+        "Winnie Khumalo",
+        "Naledi Aphiwe",
     ]
 };
 
 /* =========================================================
-   3. SAFE TEXT / HTML HELPERS
+   SAFE TEXT / HTML HELPERS
    ========================================================= */
 
 function escapeTrackText(text) {
@@ -319,7 +390,7 @@ function formatPlaybackTime(seconds) {
 
 
 /* =========================================================
-   4. DISPLAY GENRE CARDS
+   DISPLAY GENRE CARDS
    ========================================================= */
 
 
@@ -431,7 +502,7 @@ function animateGenreCards() {
     ScrollTrigger.refresh();
 }
 /* =========================================================
-   5. INITIALISE GENRE CARDS
+   INITIALISE GENRE CARDS
    ========================================================= */
 
 if (genreGrid) {
@@ -439,38 +510,55 @@ if (genreGrid) {
     displayGenres(genres);
 
 }
+
 /* =========================================================
-   GENRE SEARCH
+   GENRE SEARCH 
 ========================================================= */
 
-let searchScrollTimeout;
+let activeCategory = "all";
 
+function applyGenreFilters() {
+    if (!genreGrid) return;
+
+    const searchTerm = genreSearch?.value
+        .trim()
+        .toLowerCase() || "";
+
+    const filteredGenres = genres.filter(genre => {
+
+        const matchesSearch =
+            genre.name.toLowerCase().includes(searchTerm) ||
+            genre.description.toLowerCase().includes(searchTerm) ||
+            genre.category.toLowerCase().includes(searchTerm);
+
+        const matchesCategory =
+            activeCategory === "all" ||
+            genre.category === activeCategory;
+
+        return matchesSearch && matchesCategory;
+    });
+
+    displayGenres(filteredGenres);
+}
+
+// SEARCH AS THE USER TYPES
 if (genreSearch && genreGrid) {
-    genreSearch.addEventListener("input", event => {
-        clearTimeout(searchScrollTimeout);
 
-        if (event.target.value.trim().length > 0) {
-            searchScrollTimeout = setTimeout(() => {
-                genreGrid.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }, 500);
-        }
+    genreSearch.addEventListener("input", () => {
+        applyGenreFilters();
     });
 }
 
-/* =========================================================
-   6. GENRE CATEGORY FILTERS
-   ========================================================= */
-
-const filterButtons = document.querySelectorAll(".genre-buttons button");
+// CATEGORY FILTER BUTTONS
+const filterButtons = document.querySelectorAll(
+    ".genre-buttons button"
+);
 
 filterButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        const selectedCategory = button.dataset.filter;
+        activeCategory = button.dataset.filter || "all";
 
         filterButtons.forEach(btn => {
             btn.classList.remove("active");
@@ -478,27 +566,11 @@ filterButtons.forEach(button => {
 
         button.classList.add("active");
 
-        const searchTerm = genreSearch?.value.trim().toLowerCase() || "";
-
-const filteredGenres = genres.filter(genre => {
-
-    const matchesSearch =
-        genre.name.toLowerCase().includes(searchTerm) ||
-        genre.description.toLowerCase().includes(searchTerm);
-
-    const matchesCategory =
-        selectedCategory === "all" ||
-        genre.category === selectedCategory;
-
-    return matchesSearch && matchesCategory;
-
-});
-
-displayGenres(filteredGenres);
-
+        applyGenreFilters();
     });
 
 });
+
 
 
 /* =========================================================
@@ -976,7 +1048,7 @@ genreVinyl?.scrollIntoView({
 
 
 /* =========================================================
-   10. UPDATE PLAY / PAUSE BUTTONS
+   UPDATE PLAY / PAUSE BUTTONS
    ========================================================= */
 
 function updateTrackButtons() {
@@ -1016,7 +1088,7 @@ function updateTrackButtons() {
 
 
 /* =========================================================
-   11. UPDATE TRACK TIME AND WAVEFORM
+   UPDATE TRACK TIME AND WAVEFORM
    ========================================================= */
 
 function updateTrackProgress() {
@@ -1089,7 +1161,7 @@ function updateTrackProgress() {
 
 
 /* =========================================================
-   12. AUDIO EVENT LISTENERS
+   AUDIO EVENT LISTENERS
    REGISTERED ONLY ONCE
    ========================================================= */
 
@@ -1149,7 +1221,7 @@ genreAudio.addEventListener("timeupdate", () => {
 
 
 /* =========================================================
-   13. VINYL PLAYER
+   VINYL PLAYER
    ========================================================= */
 
 async function toggleGenreMusic() {
@@ -1228,7 +1300,7 @@ vinylPlayButton?.addEventListener("click", toggleGenreMusic);
 
 
 /* =========================================================
-   14. SYNCHRONISE VINYL WITH AUDIO
+   SYNCHRONISE VINYL WITH AUDIO
    ========================================================= */
 
 if (genreAudio) {
@@ -1291,7 +1363,7 @@ if (genreAudio) {
 
 
 /* =========================================================
-   15. GENRE DETAILS NAVIGATION
+   GENRE DETAILS NAVIGATION
    ========================================================= */
 
 const genreDetailButtons = document.querySelectorAll(

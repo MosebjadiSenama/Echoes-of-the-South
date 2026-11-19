@@ -41,7 +41,8 @@ const genreArtists = {
         "Mthandeni SK",
         "Menzi Music",
         "Umgqumeni",
-        "Umajotha"
+        "Umajotha",
+        "Limit"
     ],
 
     "Motswako": [
