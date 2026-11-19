@@ -54,7 +54,9 @@ if (genreSection) {
     }
 }
 
-//GENRE CARD
+//GENRE CARDs==========
+
+// Register GSAP plugins before creating animations
 gsap.registerPlugin(ScrollTrigger);
 
 const genreCards = gsap.utils.toArray(".genre-card");
@@ -109,7 +111,6 @@ genreCards.forEach((card, index) => {
     }
 });
 
-/* GSAP FEATURED ARTISTS SECTION ANIMATION */
 
 // Select the entire Featured Artists section
 const artistSection = document.querySelector(".featured-artists");

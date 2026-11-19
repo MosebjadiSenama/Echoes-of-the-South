@@ -1208,8 +1208,6 @@ input {
 
 
 
-
-
 /* EXPLORE GENRES TYPEWRITER EFFECT */
 
 .genre-hero h1 {
@@ -1238,14 +1236,56 @@ input {
     }
 }
 
+/* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
     .genre-hero h1 {
         width: auto;
         animation: none;
         border: none;
+        white-space: normal;
+        overflow: visible;
     }
 }
 
+/* GENRE GRID SCROLL OFFSET */
 #genreGrid {
     scroll-margin-top: 100px;
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+    .genre-hero h1 {
+        font-size: 23px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .genre-hero h1 {
+        font-size: 29px;
+        letter-spacing: 0;
+        border-right-width: 1px;
+    }
+}
+
+/*blur background whne nav bar is open*/
+@media (max-width: 768px) {
+
+    .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        z-index: 998;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
 }

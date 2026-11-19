@@ -1,7 +1,22 @@
+
+/* GLOBAL PAGE SETTINGS */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: clip;
+}
+
 body {
     background-color: #0D0D0D;
     color: #F5EBDD;
 }
+
 
 /* =========================================
    ECHOES OF THE SOUTH - SHARED NAVIGATION
@@ -210,4 +225,49 @@ body {
         padding-left: 15px;
         padding-right: 15px;
     }
+}
+
+
+/* Background blur when mobile menu is open */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Keep navbar above the overlay */
+.site-navigation {
+    position: relative;
+    z-index: 1000;
+}
+
+/*hambueger menu stay in one place and not move*/
+@media screen and (max-width: 768px) {
+
+    .navigation-bar {
+        position: relative;
+    }
+
+    .menu-toggle {
+        position: fixed;
+        top: 13px;
+        right: 20px;
+        z-index: 1002;
+        background-color: #0D0D0D;
+        border-radius: 8px;
+    }
+
 }

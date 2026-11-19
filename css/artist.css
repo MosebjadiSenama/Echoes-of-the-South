@@ -1395,10 +1395,20 @@ body {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .genre-hero h1 {
-        width: auto;
-        animation: none;
-        border: none;
+/*adjust typing text on mobile*/
+@media (max-width: 768px) {
+    .artists-intro-content h1 {
+        font-size: 28px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .artists-intro-content h1 {
+        font-size: 22px;
+        letter-spacing: 0;
+        animation:
+            typing 2.5s steps(18, end) forwards,
+            removeCursor 0s 2.5s forwards;
     }
 }

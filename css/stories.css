@@ -538,3 +538,21 @@ body {
 #extraGrid {
     scroll-margin-top: 100px;
 }
+
+
+
+@media (max-width: 768px) {
+    .extra-heading h1 {
+        font-size: 30px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .extra-heading h1 {
+        font-size: 30px;
+        letter-spacing: 0;
+        border-right-width: 1px;
+    }
+}
+

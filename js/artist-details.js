@@ -896,32 +896,58 @@ function displayArtistGallery(images, artistName) {
    FETCH ARTIST SONGS FROM ITUNES
 ============================================================ */
 
+function searchITunes(params) {
+    return new Promise((resolve, reject) => {
+        const callbackName =
+            `itunesCallback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+
+        const script = document.createElement("script");
+        const url = new URL("https://itunes.apple.com/search");
+
+        url.search = new URLSearchParams({
+            ...params,
+            callback: callbackName
+        }).toString();
+
+        const timeout = setTimeout(() => {
+            cleanup();
+            reject(new Error("iTunes request timed out."));
+        }, 15000);
+
+        function cleanup() {
+            clearTimeout(timeout);
+            delete window[callbackName];
+            script.remove();
+        }
+
+        window[callbackName] = data => {
+            cleanup();
+            resolve(data);
+        };
+
+        script.onerror = () => {
+            cleanup();
+            reject(new Error("iTunes music request failed."));
+        };
+
+        script.src = url.toString();
+        document.head.appendChild(script);
+    });
+}
+///
 async function fetchArtistSongs(artistName) {
 
     artistSongsElement.innerHTML = "<p>Loading songs...</p>";
 
     try {
 
-        const url = new URL("https://itunes.apple.com/search");
-
-        url.search = new URLSearchParams({
-
-            term: artistName,
-            entity: "song",
-            media: "music",
-            country: "ZA",
-            limit: "50"
-
-        });
-
-        const response = await fetch(url);
-
-        if (!response.ok) {
-            throw new Error("Unable to retrieve songs.");
-        }
-
-        const data = await response.json();
-
+        const data = await searchITunes({
+    term: artistName,
+    entity: "song",
+    media: "music",
+    country: "ZA",
+    limit: "50"
+});
         const requestedArtist = normaliseArtistName(artistName);
 
         const songs = (data.results || []).filter(song => {

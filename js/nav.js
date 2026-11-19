@@ -6,6 +6,8 @@ const pagePrefix = isHtmlPage ? "" : "Html/";
 const assetPrefix = isHtmlPage ? "../" : "";
 
 const navHTML = `
+
+<div class="nav-overlay" id="navOverlay"></div>
 <header class="site-navigation">
 
     <div class="navigation-bar">
@@ -65,22 +67,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const mobileMenu = document.querySelector(".mobile-menu");
 
-    menuToggle.addEventListener("click", () => {
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
+const navOverlay = document.getElementById("navOverlay");
 
-        const isOpen = mobileMenu.classList.toggle("show");
+menuToggle.addEventListener("click", () => {
 
-        menuToggle.classList.toggle("open", isOpen);
+    const isOpen = mobileMenu.classList.toggle("show");
 
-        menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.classList.toggle("open", isOpen);
 
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen ? "Close navigation" : "Open navigation"
-        );
+    navOverlay.classList.toggle("active", isOpen);
 
-    });
+    menuToggle.setAttribute("aria-expanded", isOpen);
 
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+    );
+
+});
+
+navOverlay.addEventListener("click", () => {
+
+    mobileMenu.classList.remove("show");
+
+    menuToggle.classList.remove("open");
+
+    navOverlay.classList.remove("active");
+
+    menuToggle.setAttribute("aria-expanded", "false");
+
+    menuToggle.setAttribute("aria-label", "Open navigation");
+
+});
 });

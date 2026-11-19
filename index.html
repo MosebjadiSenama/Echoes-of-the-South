@@ -55,7 +55,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
-    <script src="js/home.js" defer></script>
+     <script src="js/home.js" defer></script>
 
 
 </head>
@@ -63,7 +63,6 @@
 <body>
 
     <!--============================================================NAVIGATION BAR=================================================-->
-
     <div id="navigation-container"></div>
 
 
@@ -90,7 +89,7 @@
             <p class="hero-description">The sounds, the people and stories that shaped a nation</p>
 
 
-            <a class="explore-all-artists" href="Artists.html">Explore Artists &#8594;</a>
+            <a class="explore-all-artists" href="Html/Artists.html">Explore Artists &#8594;</a>
 
         </div>
 
@@ -188,9 +187,9 @@
 
                 <div class="artist-card-image">
 
-                    <img src="../Assets/Images/Miriam Makeba (2).jpeg"
+                    <img src="Assets/Images/Miriam Makeba (2).jpeg">
 
-                         alt="Hugh Masekela">
+                         alt="Miriam Makeba">
 
                     <span class="artist-card-arrow"> &nearr;</span>
 
@@ -216,9 +215,9 @@
 
                 <div class="artist-card-image">
 
-                    <img src="../Assets/Images/Brenda Fassie.jpeg"
+                    <img src="Assets/Images/Brenda Fassie.jpeg"
 
-                         alt="Hugh Masekela">
+                         alt="Brenda Fassie">
 
                     <span class="artist-card-arrow"> &nearr;</span>
 
@@ -244,7 +243,7 @@
 
                     <img src="Assets/Images/Lucky Dube (2).jpeg"
 
-                         alt="Hugh Masekela">
+                         alt="Lucky Dube">
 
                     <span class="artist-card-arrow"> &nearr;</span>
 
@@ -314,7 +313,7 @@
                     </p>
 
 
-                    <a href="genre-details.html?genre=South%20African%20Jazz" class="genre-link">
+                    <a href="Html/genre-details.html?genre=${encodeURIComponent(genre.name)}" class="genre-link">
                          EXPLORE JAZZ &#8594;
                     </a>
 
@@ -345,7 +344,7 @@
                         Born in South Africa, Amapiano blends deep log drums, soulful melodies and laid-back rhythms into a sound that has taken the world by storm.</p>
 
 
-                    <a href="genre-details.html?genre=Amapiano" class="genre-link">
+                    <a href="Html/genre-details.html?genre=${encodeURIComponent(genre.name)}" class="genre-link">
                        EXPLORE AMAPIANO &#8594;
                      </a>
                 </div>
@@ -376,7 +375,7 @@
                     </p>
 
 
-                    <a href="genre-details.html?genre=Lekompo" class="genre-link">EXPLORE LEKOMPO &#8594;</a>
+                    <a href="Html/genre-details.html?genre=${encodeURIComponent(genre.name)}" class="genre-link">EXPLORE LEKOMPO &#8594;</a>
 
                 </div>
 
@@ -405,7 +404,7 @@
                     </p>
 
 
-                    <a href="genre-details.html?genre=Maskandi" class="genre-link">EXPLORE MASKANDI &#8594;</a>
+                    <a href="Html/genre-details.html?genre=${encodeURIComponent(genre.name)}" class="genre-link">EXPLORE MASKANDI &#8594;</a>
 
                 </div>
 
@@ -435,7 +434,7 @@
                     </p>
 
 
-                    <a href="genre-details.html?genre=Kwaito" class="genre-link">EXPLORE KWAITO &#8594;</a>
+                    <a href="Html/genre-details.html?genre=${encodeURIComponent(genre.name)}" class="genre-link">EXPLORE KWAITO &#8594;</a>
 
                 </div>
 
@@ -476,3 +475,14 @@
     </div>
 
 </section>
+   <!--FOOTER -->
+    <footer class="site-footer">
+
+        <p>
+            Echoes of the South &copy; 2026.
+            Celebrating South African music.
+        </p>
+
+    </footer>
+</body>
+</html>

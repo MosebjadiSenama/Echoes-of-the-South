@@ -9,25 +9,25 @@ const genres = [
         name: "Maskandi",
         category: "traditional",
         description: "Born from the journeys and experiences of Zulu migrant workers, Maskandi is a musical diary of everyday life. Driven by intricate guitar melodies and expressive vocals, it carries stories of love, hardship, identity and the rhythms of home.",
-        image: "../assets/genres/maskandi.webp"
+        image: "../Assets/genres/Maskandi.webp"
     },
     {
         name: "Lekompo",
         category: "dance",
         description: "Straight from Limpopo, Lekompo is a high-energy sound where local identity meets fearless electronic production. With infectious rhythms, bold vocals and dance-floor energy, it captures the spirit of a new generation making its own musical rules.",
-        image: "../assets/genres/Lekompo.webp"
+        image: "../Assets/genres/Lekompo.webp"
     },
     {
         name: "Gqom",
         category: "dance",
         description: "Born in the townships of Durban, Gqom makes its presence felt through heavy bass, raw percussion and hypnotic rhythms. Stripped back yet impossible to ignore, its unmistakable sound transformed underground street parties into a global dance movement.",
-        image: "../assets/genres/gqom.jpg"
+        image: "../Assets/genres/gqom.jpg"
     },
     {
         name: "Isicathamiya",
         category: "traditional",
         description: "Built on the power of the human voice, Isicathamiya brings together intricate harmonies, gentle movements and deeply expressive performances. Rooted in Zulu musical traditions, its sound carries stories of community, belonging, faith and cultural pride.",
-        image: "../assets/genres/Mbube.jpeg"
+        image: "../Assets/genres/Mbube.jpeg"
     },
     {
         name: "Marabi",
@@ -39,55 +39,55 @@ const genres = [
         name: "Mbaqanga",
         category: "traditional",
         description: "Mbaqanga is a vibrant meeting of traditional African melodies, electric guitars, basslines and irresistible vocal harmonies. With its unmistakable groove, it became one of South Africa's defining popular sounds, bringing communities together through music and dance.",
-        image: "../assets/genres/Mbaqanga.jpeg"
+        image: "../Assets/genres/Mbaqanga.jpeg"
     },
     {
         name: "Kwela",
         category: "township",
         description: "With a pennywhistle at its heart, Kwela brought a playful new rhythm to the streets of South Africa. Its lively melodies, bouncing beats and unmistakable township character made it a sound of everyday celebration and urban musical creativity.",
-        image: "../assets/genres/Kwela.jpg"
+        image: "../Assets/genres/Kwela.jpg"
     },
     {
         name: "Reggae",
         category: "pop",
         description: "In South Africa, reggae became more than a rhythm. Through deep basslines, steady grooves and socially conscious lyrics, artists used the genre to speak about freedom, justice, love and the realities of everyday life.",
-        image: "../assets/images/lucky dube.jpeg"
+        image: "../Assets/images/lucky dube.jpeg"
     },
     {
         name: "Kwaito",
         category: "township",
         description: "The sound of the youth. Born in the townships of post-apartheid South Africa, Kwaito gave a generation its own soundtrack, blending slowed-down house beats, deep basslines, local slang and unapologetic attitude. More than music, it became a statement of freedom, identity and a new South African youth culture.",
-        image: "../assets/genres/Kwaito.webp"
+        image: "../Assets/genres/Kwaito.webp"
     },
     {
         name: "Bubblegum",
         category: "township",
         description: "Bright, bold and impossible to forget, South African Bubblegum brought colourful pop melodies and irresistible dance rhythms into homes and onto dance floors during the 1980s. Its catchy hooks and larger-than-life performers created a sound that still sparks nostalgia.",
-        image: "../assets/genres/Bubblegum.webp"
+        image: "../Assets/genres/Bubblegum.webp"
     },
     {
         name: "South African Jazz",
         category: "jazz",
         description: "South African Jazz is a powerful conversation between African musical traditions and global jazz influences. Through improvisation, rich harmonies and fearless experimentation, musicians have used the genre to express identity, resistance, memory and creative freedom.",
-        image: "../assets/genres/jazz.jpeg"
+        image: "../Assets/genres/jazz.jpeg"
     },
     {
         name: "Gospel",
         category: "gospel",
         description: "Rooted in faith and collective expression, South African Gospel brings together soaring vocals, uplifting harmonies and African rhythms. From intimate spiritual moments to powerful choir performances, its music celebrates hope, resilience, worship and community.",
-        image: "../assets/genres/Gospel.jpeg"
+        image: "../Assets/genres/Gospel.jpeg"
     },
     {
         name: "Motswako",
         category: "hip-hop",
         description: "Motswako reshaped South African hip-hop by bringing Setswana and English together with local slang, sharp lyricism and confident storytelling. Proudly rooted in local identity, it gave artists a platform to speak in their own voices and define their own sound.",
-        image: "../assets/genres/Motswako.jpeg"
+        image: "../Assets/genres/Motswako.jpeg"
     },
     {
         name: "Amapiano",
         category: "dance",
         description: "From South African townships to dance floors around the world, Amapiano has become a global movement. Its signature log drums, deep basslines, soulful keys and laid-back grooves create a sound that is instantly recognisable and endlessly danceable.",
-        image: "../assets/genres/Amapiano.jpeg"
+        image: "../Assets/genres/Amapiano.jpeg"
     },
     {
         name: "South African House",
@@ -99,13 +99,13 @@ const genres = [
         name: "Bacardi",
         category: "dance",
         description: "Born in Pretoria's vibrant dance culture, Bacardi is driven by rapid-fire rhythms, energetic percussion and unmistakable street-party spirit. Its infectious beats and expressive dance style have made it a defining sound of the capital's musical identity.",
-        image: "../assets/genres/Barcadi.jpeg"
+        image: "../Assets/genres/Barcadi.jpeg"
     },
     {
         name: "Afro-pop",
         category: "pop",
         description: "Afro-pop brings African musical influences into contemporary popular music through memorable melodies, expressive vocals and modern production. Moving between soulful ballads and upbeat anthems, it reflects the changing sounds, stories and experiences of South African life.",
-        image: "../assets/genres/Afro-pop.jpeg"
+        image: "../Assets/genres/Afro-pop.jpeg"
     }
 ];
 
@@ -386,8 +386,6 @@ if (emptyState) {
 
             </div>
 
-            </div>
-
         </a>
 
     `).join("");
@@ -447,22 +445,20 @@ if (genreGrid) {
 
 let searchScrollTimeout;
 
-genreSearch.addEventListener("input", event => {
+if (genreSearch && genreGrid) {
+    genreSearch.addEventListener("input", event => {
+        clearTimeout(searchScrollTimeout);
 
-//scroll to section
-
-    clearTimeout(searchScrollTimeout);
-
-    if (event.target.value.trim().length > 0) {
-        searchScrollTimeout = setTimeout(() => {
-            genreGrid.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }, 500);
-    }
-
-});
+        if (event.target.value.trim().length > 0) {
+            searchScrollTimeout = setTimeout(() => {
+                genreGrid.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }, 500);
+        }
+    });
+}
 
 /* =========================================================
    6. GENRE CATEGORY FILTERS
@@ -568,6 +564,47 @@ if (genreNameElement && !genreGrid) {
 
 //
 
+function searchITunes(params) {
+    return new Promise((resolve, reject) => {
+        const callbackName =
+            "itunesCallback_" + Date.now() + "_" +
+            Math.random().toString(36).slice(2);
+
+        const script = document.createElement("script");
+        const url = new URL("https://itunes.apple.com/search");
+
+        Object.entries(params).forEach(([key, value]) => {
+            url.searchParams.set(key, value);
+        });
+
+        url.searchParams.set("callback", callbackName);
+
+        const timeout = setTimeout(() => {
+            cleanup();
+            reject(new Error("iTunes request timed out"));
+        }, 12000);
+
+        function cleanup() {
+            clearTimeout(timeout);
+            delete window[callbackName];
+            script.remove();
+        }
+
+        window[callbackName] = (data) => {
+            cleanup();
+            resolve(data);
+        };
+
+        script.onerror = () => {
+            cleanup();
+            reject(new Error("Could not load iTunes results"));
+        };
+
+        script.src = url.toString();
+        document.body.appendChild(script);
+    });
+}
+
 
 async function loadGenreTracks(genreName) {
     if (!genreTracksElement) return;
@@ -594,16 +631,13 @@ async function loadGenreTracks(genreName) {
         // Search iTunes separately for each artist.
         const results = await Promise.allSettled(
             artists.map(async artist => {
-                const url =
-                    `https://itunes.apple.com/search?term=${encodeURIComponent(artist)}&country=ZA&media=music&entity=song&limit=20`;
-
-                const response = await fetch(url);
-
-                if (!response.ok) {
-                    throw new Error(`Search failed for ${artist}`);
-                }
-
-                const data = await response.json();
+                const data = await searchITunes({
+    term: artist,
+    country: "ZA",
+    media: "music",
+    entity: "song",
+    limit: "20"
+});
             
 const expectedArtist = normaliseArtist(artist);
 
