@@ -259,7 +259,7 @@ const southAfricanGenreArtists = {
         "Bongo Maffin",
         "Boom Shaka",
         "Arthur Mafokate",
-        "Zola",
+        "Zola 7",
         "Trompies",
         "Winnie Khumalo"
     ],
@@ -737,36 +737,40 @@ return (data.results || []).filter(track => {
         );
 
         
-// Collect songs separately for each artist.
+
+// Collect songs from all artists
 const tracksByArtist = results.map(result => {
     if (result.status !== "fulfilled") return [];
-
     return result.value;
 });
 
-// Mix songs from different artists.
-const uniqueTracks = [];
-const seenTrackIds = new Set();
+// Combine all available songs
+const allTracks = tracksByArtist.flat();
 
-const maxSongsPerArtist = 2;
-const maxTracks = 5;
+// Remove duplicate songs
+const uniqueTracks = [
+    ...new Map(
+        allTracks.map(track => [track.trackId, track])
+    ).values()
+];
 
-for (let round = 0; round < maxSongsPerArtist; round++) {
-    for (const artistTracks of tracksByArtist) {
-        const track = artistTracks[round];
+// Randomise song order using Fisher-Yates shuffle
+function shuffleTracks(tracks) {
+    const shuffled = [...tracks];
 
-        if (!track || seenTrackIds.has(track.trackId)) continue;
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
 
-        seenTrackIds.add(track.trackId);
-        uniqueTracks.push(track);
-
-        if (uniqueTracks.length >= maxTracks) break;
+        [shuffled[i], shuffled[j]] =
+            [shuffled[j], shuffled[i]];
     }
 
-    if (uniqueTracks.length >= maxTracks) break;
+    return shuffled;
 }
 
-const tracks = uniqueTracks;
+// Shuffle and display up to 10 songs
+const tracks = shuffleTracks(uniqueTracks).slice(0, 10);
+
 
 
         if (!tracks.length) {
@@ -1420,3 +1424,81 @@ genreDetailButtons.forEach(button => {
 });
 
 
+
+/* =========================================================
+   EXPLORE COLLECTION — GSAP ANIMATIONS
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Stop if GSAP or ScrollTrigger is unavailable
+    if (!window.gsap || !window.ScrollTrigger) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Only run on the Genres page
+    if (!document.querySelector(".genre-explorer")) return;
+
+
+    /* 1. SECTION HEADING */
+
+    const headingTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".genre-section-heading",
+            start: "top 85%",
+            once: true
+        }
+    });
+
+    headingTimeline
+        .from(".genre-section-heading .eyebrow", {
+            opacity: 0,
+            y: 15,
+            duration: 0.5,
+            ease: "power2.out"
+        })
+        .from(".genre-section-heading h2", {
+            opacity: 0,
+            y: 35,
+            duration: 0.8,
+            ease: "power3.out"
+        }, "-=0.2")
+        .from("#genreCount", {
+            opacity: 0,
+            x: 15,
+            duration: 0.5,
+            ease: "power2.out"
+        }, "-=0.4");
+
+
+    /* 2. SEARCH BAR */
+
+    gsap.from(".genre-search-container", {
+        scrollTrigger: {
+            trigger: ".genre-search-container",
+            start: "top 90%",
+            once: true
+        },
+        opacity: 0,
+        y: 25,
+        duration: 0.7,
+        ease: "power3.out"
+    });
+
+
+    /* 3. CATEGORY FILTER BUTTONS */
+
+    gsap.from(".genre-buttons button", {
+        scrollTrigger: {
+            trigger: ".genre-buttons",
+            start: "top 90%",
+            once: true
+        },
+        opacity: 0,
+        y: 18,
+        duration: 0.5,
+        stagger: 0.07,
+        ease: "power2.out"
+    });
+
+});

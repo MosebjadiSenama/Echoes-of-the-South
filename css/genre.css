@@ -1294,3 +1294,23 @@ input {
     }
 
 }
+
+/* EXPLORE THE COLLECTION TEXT ANIMATION */
+
+.explore-title {
+    animation: exploreReveal 1s ease-out both;
+}
+
+@keyframes exploreReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+        letter-spacing: 3px;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: normal;
+    }
+}
