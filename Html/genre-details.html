@@ -1,171 +1,156 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the music, artists and history of South African music genres.">
 
     <title>Genre Details | Echoes of the South</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/genre.css">
-    <link rel="stylesheet" href="../css/nav.css">
+    <!-- JAVASCRIPT -->
+    <script src="../js/nav.js" defer></script>
+    <script src="../js/genres.js" defer></script>
 
-    <!-- Google Fonts -->
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Cairo:wght@200..900&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- JavaScript -->
-    <script src="../js/genres.js" defer></script>
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/genre.css">
 </head>
 
 <body>
 
-    <!-- BACK TO GENRES -->
-    <a href="Genres.html" class="back-to-genres">
-        Back to genres
-    </a>
+    <!-- 01. NAVIGATION -->
+    <div id="navigation-container"></div>
 
 
-    <!-- GENRE HERO -->
-    <section class="genre-hero">
+    <main>
 
-        <div class="genre-hero-content">
+        <!-- 02. GENRE HERO -->
+        <section class="genre-detail-hero">
 
-            <p class="genre-label">GENRE</p>
+            <div class="genre-detail-content">
 
-            <h1 id="genreName">Loading genre...</h1>
+                <a href="Genres.html" class="back-to-genres">
+                    &larr; Back to genres
+                </a>
 
-            <p id="genreEra" class="genre-era">
-                SOUTH AFRICAN MUSIC
-            </p>
+                <span class="genre-label">EXPLORE THE SOUND</span>
 
-            <p id="genreDescription" class="genre-description">
-                Discover the sound, history and cultural influence of this genre.
-            </p>
+                <h1 id="genreName">Loading genre...</h1>
 
-            <button
-                id="playGenreButton"
-                class="play-genre-button"
-                type="button"
-            >
-                <span id="playGenreIcon">▶</span>
-                <span id="playGenreText">Listen to the sound</span>
-                <span aria-hidden="true">→</span>
-            </button>
+                <p id="genreEra" class="genre-era">
+                    SOUTH AFRICAN MUSIC
+                </p>
 
-        </div>
+                <p id="genreDescription" class="genre-description">
+                    Discover the sound, history and cultural influence of this genre.
+                </p>
 
-
-        <!-- VINYL RECORD -->
-        <div class="genre-vinyl-container">
-
-            <div class="genre-vinyl" id="genreVinyl">
-
-                <div class="vinyl-label">
-
-                    <img
-                        id="vinylCover"
-                        src=""
-                        alt="Album cover of the currently playing song"
-                    >
-
-                </div>
+                <p id="genreOverview" class="genre-overview"></p>
 
                 <button
-                    id="vinylPlayButton"
-                    class="vinyl-play-button"
+                    id="playGenreButton"
+                    class="play-genre-button"
                     type="button"
-                    aria-label="Play music"
                 >
-                    ▶
+                    <span id="playGenreIcon">▶</span>
+                    <span id="playGenreText">Listen to the sound</span>
+                    <span aria-hidden="true">&rarr;</span>
                 </button>
 
             </div>
 
+
+           <!-- VINYL PLAYER -->
+<div class="genre-vinyl-container">
+
+    <div class="genre-vinyl" id="genreVinyl">
+
+        <div class="vinyl-label">
+            <img
+                id="vinylCover"
+                src=""
+                alt="Artwork of the currently playing song"
+            >
         </div>
 
-        <!-- SHARED AUDIO PLAYER -->
-        <audio id="genreAudio" preload="none"></audio>
-
-    </section>
-
-
-
-    <!-- GENRE NAVIGATION TABS -->
-    <section class="genre-details">
-
         <button
-            class="active"
-            data-section="featured-tracks"
-            aria-pressed="true"
+            id="vinylPlayButton"
+            class="vinyl-play-button"
+            type="button"
+            aria-label="Play music"
         >
-            Featured tracks
+            ▶
         </button>
 
-        <button
-            data-section="timeline"
-            aria-pressed="false"
-        >
-            Timeline
-        </button>
+    </div>
 
-        <button
-            data-section="genre-connections"
-            aria-pressed="false"
-        >
-            Genre connections
-        </button>
+    <img
+        src="../Assets/Images/turn-table.png"
+        alt=""
+        class="genre-vinyl-tonearm"
+    >
 
-        <button
-            data-section="featured-artists"
-            aria-pressed="false"
-        >
-            Featured artists
-        </button>
+    <p class="vinyl-caption" id="vinylCaption">
+        NOW PLAYING
+    </p>
 
-    </section>
+</div>
 
-
-
-    <!-- FEATURED TRACKS -->
-    <section class="genre-music" id="featured-tracks">
-
-        <div class="tracks-heading">
-
-            <div>
-                <p class="tracks-eyebrow">THE SOUND OF THE GENRE</p>
-
-                <h2>Featured tracks</h2>
-
-                <p class="tracks-subtitle">
-                    Discover the songs that define this sound.
-                </p>
             </div>
 
-            <span id="trackCount" class="track-count">
-                Loading tracks...
-            </span>
+            <audio id="genreAudio" preload="none"></audio>
 
-        </div>
+        </section>
 
 
-        <!-- SONG LIST -->
-        <div id="genreTracks" class="genre-tracks">
+        <!-- 03. GENRE MUSIC COLLECTION -->
+        <section class="genre-music">
+
+            <div class="tracks-heading">
+
+                <div>
+                    <span class="tracks-eyebrow">THE SOUND OF THE GENRE</span>
+                    <h2>Explore the music</h2>
+                    <p class="tracks-subtitle">
+                        Discover the tracks and artists behind this sound.
+                    </p>
+                </div>
+
+                <span id="trackCount" class="track-count">
+                    Loading tracks...
+                </span>
+
+            </div>
 
 
-        </div>
+            <!-- SONG LIST -->
+            <div id="genreTracks" class="genre-tracks">
 
-    </section>
+                <p>Loading music...</p>
+
+            </div>
+
+        </section>
+
+    </main>
 
 
-    <!-- OTHER GENRE SECTIONS -->
-    <section id="timeline" hidden></section>
-    <section id="genre-connections" hidden></section>
-    <section id="featured-artists" hidden></section>
+    <!-- 04. FOOTER -->
+    <footer class="site-footer">
 
+        <p>
+            Echoes of the South &copy; 2026.
+            Celebrating South African music.
+        </p>
+
+    </footer>
 
 </body>
 </html>

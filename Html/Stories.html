@@ -1,16 +1,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Stories | Echoes of the South</title>
-
-    <link rel="stylesheet" href="../css/nav.css">
-    <link rel="stylesheet" href="../css/stories.css">
-
-    <script src="../js/stories.js" defer></script>
 
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,165 +18,162 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
+    <!-- Main navigation styles -->
+    <link rel="stylesheet" href="../css/nav.css">
+
+    <!-- Experimental stories styles -->
+    <link rel="stylesheet" href="../css/stories.css">
+
+     <!-- Scripts -->
+    <script src="../js/stories.js" defer></script>
+    <script src="../js/nav.js" defer></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- ============================================================
-         01. NAVIGATION BAR
-    ============================================================= -->
+    
+<!--============================================================NAVIGATION BAR=================================================-->
+<div id="navigation-container"></div>
 
-    <section class="navigation-section">
 
-        <div class="navigation-bar">
+  
+    <main>
 
-            <img src="../Assets/Logo/Frame 64.png" alt="Echoes of the South logo">
+        <section class="extra-intro">
 
-            <ul class="nav-bar">
-                <li><a href="home.html">Home</a></li>
-                <li ><a href="Artists.html">Artists</a></li>
-                <li><a href="Genres.html">Genres</a></li>
-                <li class="active"><a href="Stories.html">Stories</a></li>
-            </ul>
+            <div class="extra-heading">
 
-            <!-- SEARCH INPUT -->
+                <span class="section-eyebrow">
+                    MUSIC · HISTORY · CULTURE
+                </span>
 
-            <div class="search-container">
-                <span class="search-icon">⌕</span>
-
-                <input
-                    class="search-bar"
-                    id="artistSearch"
-                    type="search"
-                    placeholder="Search for artists, genres and stories"
-                    aria-label="Search artists"
-                >
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ============================================================
-         STORIES INTRODUCTION
-    ============================================================ -->
-
-    <main class="stories-page">
-
-        <section class="stories-intro">
-
-            <div class="stories-heading">
-                <p class="section-eyebrow">THE STORIES BEHIND THE SOUND</p>
-
-                <h1>Stories</h1>
+                <h1 class="typing-heading">Stories of the <em>South</em></h1>
 
                 <p>
-                    Explore moments, movements and people that shaped
-                    the sounds of South Africa.
+                    Discover the people, music and movements
+                    that shaped South African history.
                 </p>
+
             </div>
 
         </section>
 
-        <!-- ============================================================
-             STORY CATEGORIES
-        ============================================================ -->
 
-        <section class="stories-explorer">
+        <!-- Story collection -->
+        <section class="extra-explorer">
 
-            <div class="story-filters" aria-label="Filter stories">
+            <div class="extra-section-heading">
 
-                <button class="story-filter active"
-                        data-category="all"
-                        aria-pressed="true">
-                    All
+                <div>
+                    <span class="section-eyebrow">THE ARCHIVE</span>
+                    <h2>Explore the stories</h2>
+                </div>
+
+                <p id="storyCount">Loading stories...</p>
+
+            </div>
+
+
+            <!-- Search -->
+            <div class="extra-search">
+
+                <i class="fas fa-search" aria-hidden="true"></i>
+
+                <input
+                    type="search"
+                    id="extraSearch"
+                    placeholder="Search artists, music and history..."
+                    aria-label="Search stories"
+                >
+
+            </div>
+
+
+            <!-- Categories -->
+            <div class="extra-filters" aria-label="Filter stories">
+
+                <button class="extra-filter active"
+                    data-category="all"
+                    aria-pressed="true">
+                    All stories
                 </button>
 
-                <button class="story-filter"
-                        data-category="history"
-                        aria-pressed="false">
-                    History
+                <button class="extra-filter"
+                    data-category="artists"
+                    aria-pressed="false">
+                    Artists
                 </button>
 
-                <button class="story-filter"
-                        data-category="culture"
-                        aria-pressed="false">
+                <button class="extra-filter"
+                    data-category="music"
+                    aria-pressed="false">
+                    Music history
+                </button>
+
+                <button class="extra-filter"
+                    data-category="resistance"
+                    aria-pressed="false">
+                    Struggle music
+                </button>
+
+                <button class="extra-filter"
+                    data-category="culture"
+                    aria-pressed="false">
                     Culture
                 </button>
 
-                <button class="story-filter"
-                        data-category="people"
-                        aria-pressed="false">
-                    People
-                </button>
-
-                <button class="story-filter"
-                        data-category="movements"
-                        aria-pressed="false">
+                <button class="extra-filter"
+                    data-category="movements"
+                    aria-pressed="false">
                     Movements
                 </button>
 
-                <button class="story-filter"
-                        data-category="protest"
-                        aria-pressed="false">
-                    Protest
-                </button>
-
-                <button class="story-filter"
-                        data-category="global-influence"
-                        aria-pressed="false">
-                    Global Influence
-                </button>
-
             </div>
 
-            <!-- ============================================================
-                 STORIES CONTENT
-            ============================================================ -->
 
-            <div class="stories-status">
-
-                <p id="storiesLoading" hidden>
-                    Loading stories...
-                </p>
-
-                <div id="storiesError" hidden>
-                    <p>Stories could not be loaded.</p>
-                    <button id="retryStories" type="button">
-                        Try again
-                    </button>
-                </div>
-
-                <p id="storiesEmpty" hidden>
-                    No stories found in this category.
-                </p>
-
+            <!-- Loading -->
+            <div class="extra-status" id="extraLoading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Discovering stories...</p>
             </div>
 
-            <div class="stories-grid" id="storiesGrid">
 
-                <!-- Story cards will be generated using JavaScript -->
-
+            <!-- Error -->
+            <div class="extra-status" id="extraError" hidden>
+                <p>Stories could not be loaded.</p>
+                <button id="retryExtra">Try again</button>
             </div>
+
+
+            <!-- Empty -->
+            <div class="extra-status" id="extraEmpty" hidden>
+                <p>No stories found. Try another search.</p>
+            </div>
+
+
+            <!-- Stories will be added here by JavaScript -->
+            <div class="extra-grid" id="extraGrid"></div>
 
         </section>
 
     </main>
 
-    <!-- ============================================================
-         FOOTER
-    ============================================================ -->
 
+    <!-- Footer -->
     <footer class="site-footer">
 
-        <p>Echoes of the South</p>
-
         <p>
-            Preserving the sounds, stories and cultural heritage
-            of South African music.
+            © 2026 Echoes of the South.
+            Preserving the sounds and stories of our history.
         </p>
 
     </footer>
+
+
+   
 
 </body>
 </html>

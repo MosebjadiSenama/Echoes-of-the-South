@@ -25,44 +25,16 @@
     <!-- JAVASCRIPT -->
 
    <script src="../js/artist.js" defer></script>
+   <script src="../js/nav.js" defer></script>
 
 </head>
 
 <body>
 
-    <!-- ============================================================
-         01. NAVIGATION BAR
-    ============================================================= -->
-
-    <section class="navigation-section">
-
-        <div class="navigation-bar">
-
-            <img src="../Assets/Logo/Frame 64.png" alt="Echoes of the South logo">
-
-            <ul class="nav-bar">
-                <li><a href="home.html">Home</a></li>
-                <li class="active"><a href="Artists.html">Artists</a></li>
-                <li><a href="Genres.html">Genres</a></li>
-                <li><a href="Stories.html">Stories</a></li>
-            </ul>
-
-            <!-- SEARCH INPUT -->
-
-            <div class="search-container">
-                <span class="search-icon">⌕</span>
-
-                <input
-                    class="search-bar"
-                    id="artistSearch"
-                    type="search"
-                    placeholder="Search for artists, genres and stories"
-                    aria-label="Search artists"
-                >
-            </div>
-
-        </div>
-
+    <!--============================================================NAVIGATION BAR=================================================-->
+<section>
+<div id="navigation-container"></div>
+     
     </section>
 
 
@@ -76,11 +48,8 @@
 
             <div class="artists-intro-content">
 
-                <span class="artists-eyebrow">
-                    THE PEOPLE BEHIND THE SOUND
-                </span>
 
-                <h1>ARTISTS</h1>
+                <h1 class="typing-heading">Explore <em>Artists</em></h1>
 
                 <p>
                     Discover the voices, musicians and cultural icons
@@ -98,24 +67,29 @@
 
         <section class="artists-explorer">
 
-            <div class="artists-heading">
-
-                <div>
-                    <h2>Discover Artists</h2>
-
-                    <p>
-                        Explore the musicians behind South Africa's
-                        diverse musical heritage.
-                    </p>
-                </div>
-
-                <p id="artistCount" aria-live="polite">
+          <p id="artistCount" aria-live="polite">
                     Loading artists...
                 </p>
 
             </div>
 
 
+
+            <!-- SEARCH INPUT -->
+
+            <div class="search-container">
+                <span class="search-icon">⌕</span>
+
+                <input
+                    class="search-bar"
+                    id="artistSearch"
+                    type="search"
+                    placeholder="Search for artists, genres and stories"
+                    aria-label="Search artists"
+                >
+            </div>
+
+        
             <!-- GENRE FILTERS -->
 
 <div class="artist-filters" aria-label="Filter artists by music category">

@@ -3,6 +3,7 @@ body{
 font-family: "cairo", sans-serif;
   font-weight: 200;
   font-style: normal;
+  background: #0b0b0b;
   
 }
 /*==================================================================HERO SECTION============================================*/
@@ -13,30 +14,34 @@ font-family: "cairo", sans-serif;
     align-items: center;
     justify-content: space-between;
     width:  calc(100% - 40px);
+    height: 500px;
     
 
 }
-.explore-all-artists{
+/* Explore artists button */
+
+.explore-all-artists {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 35px;
+    margin-top: 20px;
+    padding: 10px 20px;
     background-color: #B9563E;
     color: white;
     border: none;
-    height: 42px;
-    border-radius: 10px;
+    border-radius: 6px;
     font-family: "Poppins", sans-serif;
     font-size: 14px;
+    text-decoration: none;
     cursor: pointer;
-    width: 200px;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    margin-top: 60px;
 }
 
-.explore-all-artists:hover{
-background-color:#7E2E1B;
-width: 220px;
-height: 50px;
-border: 1px solid whitesmoke;
-transform: scale(1.05);
-font-weight:400;
+.explore-all-artists:hover {
+    background-color: #7E2E1B;
+    transform: scale(1.05);
 }
 
 
@@ -51,13 +56,6 @@ font-weight:400;
     font-weight: 200;
     white-space: nowrap;
 }
-
-    
-
-.hero-description{
-    font-size:30px;
-}
-
 
 
 .hero-h2,
@@ -125,24 +123,25 @@ font-weight:400;
 
    /*========================================================================FEATURED ARTISTS===================================================================*/
 
-   .section-heading{
+   .section-heading {
     color: #7E2E1B;
-    font-size: 42px;
-    font-weight: 100;
-     font-family: "Alfa Slab One", serif;
+    font-size: 28px;
+    font-weight: 400;
+    font-family: "Alfa Slab One", serif;
+    line-height: 1.3;
+    margin: 0 0 12px;
+}
 
 
-   }
-
-
-.heading-section h2{
-    font-size:32px;
-    font-weight: 200;
-    font-style: normal;
-    margin-top: -30px;
+.featured-artists .heading-section h2,
+.featured-genres .hero-description,
+.featured-stories .hero-description {
+    font-family: "Cairo", sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.4;
     color: white;
-
-    
+    margin: 0 0 12px;
 }
 
 
@@ -169,19 +168,29 @@ font-weight:400;
     
 }
 
-.view-all-artists-section a{
+.view-all-artists-section a,
+.view-all-stories-section a,
+.explore-all-genres{
 
-    font-size: 14px;
+    font-size: 18px;
     text-decoration: none;
     transition: color 0.3s ease;
     color: white;
     font-weight: 400;
     margin-top: -10px;
     margin-top: -35px;
+    font-weight: 600px;
 }
 
-.view-all-artists-section a:hover{
+.view-all-artists-section a:hover,
+.view-all-stories-section a:hover,
+.explore-all-genres a:hover{
     color: #B9563E;
+}
+
+.view-all-stories-section,
+.explore-all-genres{
+    margin-right: 60px;
 }
 
 /*artist card layout*/
@@ -301,51 +310,20 @@ transform: translateY(0);
    
 }
 
-
-.featured-genres{
-     margin-left:40px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     gap: 30px;
+.featured-genres {
+    margin: 0;
+    padding: 70px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
 }
 
 .genre-content{
     max-width: 700px;
 }
 
-.explore-all-genres{
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    text-decoration: none;
-
-    background-color: #B9563E;
-    color: white;
-    border: none;
-    height: 42px;
-    border-radius: 10px;
-
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-    cursor: pointer;
-    width: 200px !important;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    margin-top: 0;
-    flex-shrink: 0;
-
-
-}
-
-.explore-all-genres:hover{
-background-color:#7E2E1B;
-width: 220px;
-height: 50px;
-border: 1px solid whitesmoke;
-font-weight:400;
-}
 
 /*genre cards*/
 .cards-section{
@@ -518,20 +496,688 @@ font-weight:400;
 
 /*=======================================STORIES=========================*/
 
-.featured-stories{
-     margin-left:40px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     gap: 30px;
+/* Featured Stories Section */
+.featured-stories {
+    display: block;
+    width: 100%;
+    padding: 70px 6%;
+    margin: 0;
+    background-color: #131212;
+    color: #F1E8DF;
 }
 
-.featured-stories h3{
-    font-size:32px;
-    font-weight: 200;
-    font-style: normal;
-    margin-top: -30px;
-    color: white;   
+.genre-content {
+    max-width: 700px;
+    width: 100%;
+}
+
+.featured-genres .genre-content > p,
+.featured-stories .genre-content > p {
+    font-family: "Cairo", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #D5CCC3;
+    margin: 0;
+}
+/* Featured story cards */
+.featured-stories-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    margin: 35px auto;
+}
+
+.featured-stories-grid .story-card {
+    width: 75%;
+    max-width: 850px;
+}
+/* View all stories */
+.view-all-stories-section {
+    display: flex;
+    justify-content: flex-end;
+    margin: 25px 0 0;
 }
 
 
+
+/*ANIMATIONS*/
+
+/* Cinematic title entrance */
+
+.hero-section h2 {
+    opacity: 0;
+    animation: cinematicFade 1.2s ease-out 0.2s forwards;
+}
+
+@keyframes cinematicFade {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-section h2 {
+        opacity: 1;
+        animation: none;
+    }
+}
+
+/*story cards*/
+
+
+/* Featured stories section */
+
+.featured-stories-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    width: 75%;
+    max-width: 850px;
+    margin: 35px auto;
+}
+.view-all-stories-section {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0 0;
+}
+/* Story card */
+
+.featured-stories-grid .story-card {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr) 40px;
+    align-items: center;
+    gap: 22px;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    overflow: hidden;
+    border: 1px solid #49353E;
+    border-radius: 10px;
+    background: #0C0C0C;
+    color: #F1E8DF;
+    text-decoration: none;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.featured-stories-grid .story-card:hover {
+    transform: translateY(-4px);
+    border-color: #B9563E;
+}
+
+/* Story image */
+
+.featured-stories-grid .story-card-image {
+    position: relative;
+    width: 100%;
+    height: 145px;
+    overflow: hidden;
+    border-radius: 7px;
+    background: #201C19;
+}
+
+.featured-stories-grid .story-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.featured-stories-grid .story-card:hover .story-card-image img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.featured-stories-grid .story-card-image::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.35),
+        transparent 55%
+    );
+    content: "";
+    pointer-events: none;
+}
+
+.featured-stories-grid .story-card-image.image-unavailable {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured-stories-grid .story-card-image.image-unavailable::after {
+    position: static;
+    color: #B9563E;
+    font-family: "Playfair Display", serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    content: "ECHOES OF THE SOUTH";
+}
+
+/* Story text */
+
+.featured-stories-grid .story-card-content {
+    min-width: 0;
+}
+
+.featured-stories-grid .story-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.featured-stories-grid .story-tag {
+    color: #B9563E;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.featured-stories-grid .story-card-content h2 {
+    margin: 0 0 7px;
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.featured-stories-grid .story-card-content p {
+    margin: 0;
+    color: #D5CCC3;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* Story arrow */
+
+.featured-stories-grid .story-card-arrow {
+    display: grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #B9563E;
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: 0.3s ease;
+}
+
+.featured-stories-grid .story-card:hover .story-card-arrow,
+.featured-stories-grid .story-card:focus-visible .story-card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Mobile layout */
+
+@media (max-width: 600px) {
+    .featured-stories-grid .story-card {
+        grid-template-columns: 100px minmax(0, 1fr) 28px;
+        gap: 12px;
+        padding: 9px;
+    }
+
+    .featured-stories-grid .story-card-image {
+        height: 105px;
+    }
+
+    .featured-stories-grid .story-card-content h2 {
+        font-size: 15px;
+    }
+
+    .featured-stories-grid .story-card-content p {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .featured-stories-grid .story-card-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+/* tablets and smaller laptops */
+
+@media (max-width: 1024px) {
+
+    /* hero section */
+
+    .hero-section {
+        margin: 30px 0 0 25px;
+        width: calc(100% - 25px);
+        height: 450px;
+        gap: 15px;
+    }
+
+    .hero-h2,
+    .south {
+        font-size: 55px;
+    }
+
+    .hero-description {
+        font-size: 18px;
+        font-weight: none !important;
+    }
+
+    .hero-img {
+        width: 50%;
+        height: 450px;
+    }
+
+    .Vinyl {
+        width: 420px;
+        left: -45px;
+    }
+
+    .Miriam-makeba-hs {
+        width: 520px;
+        right: -20px;
+        bottom: 65px;
+    }
+
+
+    /* featured artists */
+
+    .featured-artists {
+        padding: 60px 5%;
+    }
+
+    .featured-artists-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+
+    /* explore genres */
+
+    .featured-genres {
+        margin-left: 25px;
+        margin-right: 25px;
+        gap: 20px;
+    }
+
+    .genre-content {
+        max-width: 45%;
+    }
+
+    .cards-section {
+        width: 80%;
+    }
+
+}
+
+
+/* tablets */
+
+@media (max-width: 768px) {
+
+    /* hero section */
+
+    .hero-section {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        margin: 40px 5% 0;
+        width: 90%;
+    }
+
+    .hero-h2,
+    .south {
+        font-size: clamp(42px, 8vw, 58px);
+    }
+
+    .living-archive {
+        font-size: 16px;
+        white-space: normal;
+    }
+
+    .hero-description {
+        font-size: 22px;
+    }
+
+    .hero-section p {
+        font-size: 16px;
+    }
+
+    .hero-img {
+        width: 100%;
+        height: 400px;
+        flex: none;
+        margin-top: 10px;
+    }
+
+    .Vinyl {
+        width: min(65%, 390px);
+        top: 20px;
+        left: 0;
+    }
+
+    .Miriam-makeba-hs {
+        width: min(85%, 480px);
+        right: 0;
+        bottom: 20px;
+       
+    }
+
+
+    /* featured artists */
+
+    .featured-artists {
+        padding: 50px 5%;
+    }
+
+   .featured-artists .section-heading,
+.featured-genres .section-heading,
+.featured-stories .section-heading {
+    font-size: 26px;
+}
+
+.featured-artists .heading-section h2,
+.featured-genres .hero-description,
+.featured-stories .hero-description {
+    font-size: 20px;
+}
+    .featured-artists-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .artist-card-image {
+        height: 190px;
+    }
+
+    .artist-card-info h3 {
+        font-size: 15px;
+    }
+
+    .artist-card-info p {
+        font-size: 12px;
+    }
+
+
+    /* explore genres */
+
+    .featured-genres {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 50px 5%;
+    gap: 10px;
+}
+
+    .genre-content {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .featured-genres h3 {
+        font-size: 26px;
+        margin-top: -15px;
+    }
+
+    .cards-section {
+        width: 100%;
+        max-width: none;
+        margin: 25px 0;
+        padding-top: 20px;
+    }
+
+    .genre-card {
+        min-height: 230px;
+        padding: 35px 25px;
+    }
+
+    .genre-card-content h3 {
+        font-size: clamp(35px, 7vw, 50px);
+    }
+
+    .genre-description {
+        max-width: 90%;
+        font-size: 14px;
+    }
+
+    .genre-arrow {
+        right: 20px;
+        bottom: 20px;
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+    }
+
+    .gerne-number,
+    .genre-number {
+        left: 20px;
+    }
+
+}
+
+
+/* mobile phones */
+
+@media (max-width: 600px) {
+
+    /* hero section */
+
+    .hero-section {
+        margin: 35px 5% 0;
+        width: 90%;
+    }
+
+    .hero-h2,
+    .south {
+        font-size: clamp(36px, 10vw, 48px);
+    }
+
+    .hero-description {
+        font-size: 19px;
+    }
+
+    .hero-section p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .explore-all-artists {
+        width: 100px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    .hero-img {
+        height: 310px;
+    }
+
+    .Vinyl {
+        width: 70%;
+        top: 15px;
+        left: -5px;
+    }
+
+    .Miriam-makeba-hs {
+        width: 90%;
+        right: -5px;
+        bottom: 10px;
+       
+    }
+
+
+    /* featured artists */
+
+    .featured-artists {
+        padding: 45px 5%;
+    }
+.featured-artists .section-heading,
+.featured-genres .section-heading,
+.featured-stories .section-heading {
+    font-size: 22px;
+}
+
+.featured-artists .heading-section h2,
+.featured-genres .hero-description,
+.featured-stories .hero-description {
+    font-size: 18px;
+}
+
+    .featured-artists-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .artist-card-image {
+        height: 145px;
+    }
+
+    .artist-card-info {
+        padding: 12px 0;
+    }
+
+    .artist-card-info h3 {
+        font-size: 13px;
+        margin-left: 8px;
+    }
+
+    .artist-card-info p {
+        font-size: 11px;
+        margin-left: 8px;
+    }
+
+    .artist-card-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+        opacity: 1;
+        transform: none;
+    }
+
+
+    /* explore genres */
+
+    .featured-genres {
+        padding: 40px 5%;
+    }
+
+    .featured-genres h3 {
+        font-size: 22px;
+    }
+
+    .cards-section {
+        padding-top: 10px;
+    }
+
+    /* disable sticky stacking on small screens */
+
+    .genre-card {
+        position: relative;
+        top: auto;
+        min-height: 210px;
+        margin-bottom: 15px;
+        padding: 30px 20px;
+    }
+
+    .genre-card-content h3 {
+        font-size: 38px;
+    }
+
+    .genre-keywords {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .genre-description {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.6;
+        padding-right: 5px;
+    }
+
+    .genre-link {
+        padding: 10px 15px;
+        font-size: 10px;
+    }
+
+    .genre-arrow {
+        width: 32px;
+        height: 32px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 18px;
+    }
+
+
+    /* section links */
+
+    .view-all-artists-section,
+    .view-all-stories-section {
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .view-all-artists-section a,
+    .view-all-stories-section a {
+        margin: 0;
+        font-size: 13px;
+    }
+
+}
+
+
+/* very small phones */
+
+@media (max-width: 380px) {
+
+    .hero-h2,
+    .south {
+        font-size: 35px;
+    }
+
+    .hero-img {
+        height: 260px;
+    }
+
+    .featured-artists-grid {
+        gap: 9px;
+    }
+
+    .artist-card-image {
+        height: 120px;
+    }
+
+    .artist-card-info h3 {
+        font-size: 12px;
+    }
+
+    .genre-card-content h3 {
+        font-size: 32px;
+    }
+
+    .genre-card {
+        padding: 25px 15px;
+    }
+
+}

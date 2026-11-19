@@ -1,153 +1,213 @@
-body{
-    background-color:#171715;
-    margin: 0;
-    color: white;
-    
+body {
+    background-color: #0D0D0D;
+    color: #F5EBDD;
 }
 
-.nav-bar li{
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size:20px;
-  
- 
-}
+/* =========================================
+   ECHOES OF THE SOUTH - SHARED NAVIGATION
+========================================= */
 
-/*=======search input section========*/
-.search-container{
-    position:relative;
-    width: 320px;
-    margin-right: 50px;
-}
-
-.search-icon{
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #e8d8c4;
-    font-size: 22px;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.search-bar{
+.site-navigation {
     width: 100%;
-    height: 42px;
-    padding: 0 14px 0 42px;
-    box-sizing: border-box;
-    background: #171715;
-    color: white;
-    border: 1px solid #B8A58C;
-    border-radius: 16px;
-    font-family: "cairo", sans-serif;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 025s ease;
-    box-shadow: 0.25s ease;   
-}
-
-
-/*underline transtion for hover state*/
-.nav-bar a{
     position: relative;
+    z-index: 1000;
+    background: #0b0b0b;
+    font-family: 'Cairo', sans-serif;
 }
 
-/*underline*/
-.nav-bar a::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
+.navigation-bar {
     width: 100%;
-    height: 2px;
-    background-color: #e28973;
-    transform: scaleX(0);
-
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.nav-bar a:hover::after{
-    transform: scaleX(1);
-}
-
-/*navigation bar*/
-.navigation-bar{
+    min-height: 85px;
+    padding: 12px 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0;
+    box-sizing: border-box;
 }
 
-   .search-bar::placeholder{
-    color: #999999;
-    opacity: 1;
-   }
+/* LOGO */
 
-.search-bar:hover{
-    border-color: #e8d8c4;
-}
-
-.search-bar:focus{
-    border-color: #b66450;
-    box-shadow: 0 0 0 4px rgba(226, 137, 115, 0.18);
-}
-
-/*logo*/
-.navigation-bar img{
-    width: 150px;
-    height: auto;
-    margin-left: 40px;
-}
-
-/*navigation links*/
-.nav-bar{
+.nav-logo {
     display: flex;
     align-items: center;
-    gap: 60px;
+    text-decoration: none;
+}
+
+.nav-logo img {
+    width: 180px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* DESKTOP LINKS */
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
-    margin-left: auto;
-    margin-right: auto;
-    
 }
-.navigation-section{
-    background-color:#171715;
-    height: 80px;
-    justify-content: space-between;
-    position: fixed;
+
+.nav-bar li {
     margin: 0;
-    width: 100%;
-    z-index: 999;
-    box-sizing: border-box;
-    top: 0;
-    left: 0;
-    
-
+    padding: 0;
 }
 
-/*navigation links*/
-.nav-bar a{
-    color: white;
+.nav-bar a {
+    display: block;
+    padding: 10px 20px;
+    color: #F5EBDD;
     text-decoration: none;
-    font-family: "Poppins", sans-serif; 
-    font-weight: 400; 
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 9px;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 20px;
 }
 
-.nav-bar li.active a{
-    font-weight: 800;
-    color: white;
-
+.nav-bar a:hover {
+    color: #e9ad9e;
 }
 
-/*active underline*/
-.nav-bar li.active a::after{
-    background-color: #B9563E;
-    transform: scaleX(1);
-    bottom: -4px;
-    height: 4px;
+.nav-bar a.active{
+    background: transparent;
+    color: #B9563E;
+    border-radius: 0;
+    position: relative;
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* HIDE MOBILE ELEMENTS ON DESKTOP */
+
+.menu-toggle,
+.mobile-menu {
+    display: none;
+}
+
+
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .navigation-bar {
+        min-height: 70px;
+        padding: 10px 20px;
+    }
+
+    .nav-logo img {
+        width: 145px;
+    }
+
+    /* Hide desktop links */
+
+    .nav-bar {
+        display: none;
+    }
+
+    /* Hamburger button */
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        width: 44px;
+        height: 44px;
+        padding: 9px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 26px;
+        height: 2px;
+        background: #F5EBDD;
+        border-radius: 2px;
+        transition: 0.3s ease;
+    }
+
+    /* Hamburger to close icon */
+
+    .menu-toggle.open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* MOBILE MENU */
+
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding: 12px 20px 25px;
+        box-sizing: border-box;
+        background: #0b0b0b;
+        border-top: 1px solid #B9563E;
+    }
+
+    .mobile-menu.show {
+        display: flex;
+    }
+
+    .mobile-menu a {
+        display: block;
+        padding: 15px 18px;
+        color: #F5EBDD;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(245, 235, 221, 0.12);
+        border-radius: 0;
+        transition: 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+        color: #B9563E;
+    }
+
+    .mobile-menu a.active {
+        background: #B9563E;
+        color: #fff;
+        border-radius: 9px;
+        border-bottom: none;
+        margin: 5px 0;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE SCREENS
+========================================= */
+
+@media screen and (max-width: 380px) {
+
+    .nav-logo img {
+        width: 125px;
+    }
+
+    .navigation-bar {
+        padding: 10px 15px;
+    }
+
+    .mobile-menu {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }

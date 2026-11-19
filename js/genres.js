@@ -5,144 +5,110 @@
    ========================================================= */
 
 const genres = [
-
     {
         name: "Maskandi",
         category: "traditional",
-        description: "Zulu folk music blending storytelling, rhythmic guitar and everyday life.",
-        image: "../assets/genres/maskandi.webp",
-        link: "genre-details.html"
+        description: "Born from the journeys and experiences of Zulu migrant workers, Maskandi is a musical diary of everyday life. Driven by intricate guitar melodies and expressive vocals, it carries stories of love, hardship, identity and the rhythms of home.",
+        image: "../assets/genres/maskandi.webp"
     },
-
     {
         name: "Lekompo",
         category: "dance",
-        description: "A Limpopo-born sound blending local influences with energetic electronic beats.",
-        image: "../assets/genres/Lekompo.webp",
-        link: "genre-details.html"
+        description: "Straight from Limpopo, Lekompo is a high-energy sound where local identity meets fearless electronic production. With infectious rhythms, bold vocals and dance-floor energy, it captures the spirit of a new generation making its own musical rules.",
+        image: "../assets/genres/Lekompo.webp"
     },
-
     {
         name: "Gqom",
         category: "dance",
-        description: "Durban-born dance music driven by heavy bass and stripped-back beats.",
-        image: "../assets/genres/gqom.jpg",
-        link: "genre-details.html"
+        description: "Born in the townships of Durban, Gqom makes its presence felt through heavy bass, raw percussion and hypnotic rhythms. Stripped back yet impossible to ignore, its unmistakable sound transformed underground street parties into a global dance movement.",
+        image: "../assets/genres/gqom.jpg"
     },
-
     {
         name: "Isicathamiya",
         category: "traditional",
-        description: "Powerful choral singing rooted in South African vocal traditions.",
-        image: "../assets/genres/Mbube.jpeg",
-        link: "genre-details.html"
+        description: "Built on the power of the human voice, Isicathamiya brings together intricate harmonies, gentle movements and deeply expressive performances. Rooted in Zulu musical traditions, its sound carries stories of community, belonging, faith and cultural pride.",
+        image: "../assets/genres/Mbube.jpeg"
     },
-
     {
         name: "Marabi",
         category: "township",
-        description: "Early urban dance music shaped by township life, jazz and African rhythms.",
-        image: "../assets/genres/Marabi.jpeg",
-        link: "genre-details.html"
+        description: "The soundtrack of early urban township nightlife, Marabi grew from lively piano melodies, jazz influences and African rhythms. Its infectious sound filled shebeens and social spaces, creating a musical culture that helped shape South African popular music.",
+        image: "../assets/genres/Marabi.jpeg"
     },
-
     {
         name: "Mbaqanga",
         category: "traditional",
-        description: "A lively fusion of Zulu musical traditions and modern instrumentation.",
-        image: "../assets/genres/Mbaqanga.jpeg",
-        link: "genre-details.html"
+        description: "Mbaqanga is a vibrant meeting of traditional African melodies, electric guitars, basslines and irresistible vocal harmonies. With its unmistakable groove, it became one of South Africa's defining popular sounds, bringing communities together through music and dance.",
+        image: "../assets/genres/Mbaqanga.jpeg"
     },
-
     {
         name: "Kwela",
         category: "township",
-        description: "Upbeat pennywhistle music that brought township streets to life.",
-        image: "../assets/genres/Kwela.jpg",
-        link: "genre-details.html"
+        description: "With a pennywhistle at its heart, Kwela brought a playful new rhythm to the streets of South Africa. Its lively melodies, bouncing beats and unmistakable township character made it a sound of everyday celebration and urban musical creativity.",
+        image: "../assets/genres/Kwela.jpg"
     },
-
     {
         name: "Reggae",
         category: "pop",
-        description: "Music known for steady rhythms, deep bass and messages of love, unity and resistance.",
-        image: "../assets/images/lucky dube.jpeg",
-        link: "genre-details.html"
+        description: "In South Africa, reggae became more than a rhythm. Through deep basslines, steady grooves and socially conscious lyrics, artists used the genre to speak about freedom, justice, love and the realities of everyday life.",
+        image: "../assets/images/lucky dube.jpeg"
     },
-
     {
         name: "Kwaito",
         category: "township",
-        description: "Post-apartheid township dance music blending house beats and local slang.",
-        image: "../assets/genres/Kwaito.webp",
-        link: "genre-details.html"
+        description: "The sound of the youth. Born in the townships of post-apartheid South Africa, Kwaito gave a generation its own soundtrack, blending slowed-down house beats, deep basslines, local slang and unapologetic attitude. More than music, it became a statement of freedom, identity and a new South African youth culture.",
+        image: "../assets/genres/Kwaito.webp"
     },
-
     {
         name: "Bubblegum",
         category: "township",
-        description: "Catchy 1980s South African pop with infectious melodies and dance rhythms.",
-        image: "../assets/genres/Bubblegum.webp",
-        link: "genre-details.html"
+        description: "Bright, bold and impossible to forget, South African Bubblegum brought colourful pop melodies and irresistible dance rhythms into homes and onto dance floors during the 1980s. Its catchy hooks and larger-than-life performers created a sound that still sparks nostalgia.",
+        image: "../assets/genres/Bubblegum.webp"
     },
-
     {
         name: "South African Jazz",
         category: "jazz",
-        description: "A distinctive jazz tradition shaped by African rhythms and improvisation.",
-        image: "../assets/genres/jazz.jpeg",
-        link: "genre-details.html"
+        description: "South African Jazz is a powerful conversation between African musical traditions and global jazz influences. Through improvisation, rich harmonies and fearless experimentation, musicians have used the genre to express identity, resistance, memory and creative freedom.",
+        image: "../assets/genres/jazz.jpeg"
     },
-
     {
         name: "Gospel",
         category: "gospel",
-        description: "Soulful Christian music blending powerful vocals, harmonies and African rhythms.",
-        image: "../assets/genres/Gospel.jpeg",
-        link: "genre-details.html"
+        description: "Rooted in faith and collective expression, South African Gospel brings together soaring vocals, uplifting harmonies and African rhythms. From intimate spiritual moments to powerful choir performances, its music celebrates hope, resilience, worship and community.",
+        image: "../assets/genres/Gospel.jpeg"
     },
-
     {
         name: "Motswako",
         category: "hip-hop",
-        description: "South African hip-hop blending Setswana and English lyrics.",
-        image: "../assets/genres/Motswako.jpeg",
-        link: "genre-details.html"
+        description: "Motswako reshaped South African hip-hop by bringing Setswana and English together with local slang, sharp lyricism and confident storytelling. Proudly rooted in local identity, it gave artists a platform to speak in their own voices and define their own sound.",
+        image: "../assets/genres/Motswako.jpeg"
     },
-
     {
         name: "Amapiano",
         category: "dance",
-        description: "A South African dance sound featuring deep bass, log drums and soulful keys.",
-        image: "../assets/genres/Amapiano.jpeg",
-        link: "genre-details.html"
+        description: "From South African townships to dance floors around the world, Amapiano has become a global movement. Its signature log drums, deep basslines, soulful keys and laid-back grooves create a sound that is instantly recognisable and endlessly danceable.",
+        image: "../assets/genres/Amapiano.jpeg"
     },
-
     {
         name: "South African House",
         category: "dance",
-        description: "House music infused with African rhythms, soulful vocals and local influences.",
-        image: "../assets/genres/SA house.jpeg",
-        link: "genre-details.html"
+        description: "South African House takes the pulse of global house music and gives it a distinctly local identity. Layered percussion, soulful vocals and African-inspired rhythms create immersive grooves that have carried South African DJs and producers onto international stages.",
+        image: "../assets/genres/SA house.jpeg"
     },
-
     {
-        name: "Barcadi",
+        name: "Bacardi",
         category: "dance",
-        description: "A Pretoria-born dance style known for energetic beats and distinctive rhythms.",
-        image: "../assets/genres/Barcadi.jpeg",
-        link: "genre-details.html"
+        description: "Born in Pretoria's vibrant dance culture, Bacardi is driven by rapid-fire rhythms, energetic percussion and unmistakable street-party spirit. Its infectious beats and expressive dance style have made it a defining sound of the capital's musical identity.",
+        image: "../assets/genres/Barcadi.jpeg"
     },
-
     {
         name: "Afro-pop",
         category: "pop",
-        description: "South African pop blending contemporary production with African musical influences.",
-        image: "../assets/genres/Afro-pop.jpeg",
-        link: "genre-details.html"
+        description: "Afro-pop brings African musical influences into contemporary popular music through memorable melodies, expressive vocals and modern production. Moving between soulful ballads and upbeat anthems, it reflects the changing sounds, stories and experiences of South African life.",
+        image: "../assets/genres/Afro-pop.jpeg"
     }
-
 ];
+
 
 
 /* =========================================================
@@ -150,6 +116,8 @@ const genres = [
    ========================================================= */
 
 const genreGrid = document.getElementById("genreGrid");
+const genreSearch = document.getElementById("genreSearch");
+const genreCount = document.getElementById("genreCount");
 
 const genreNameElement = document.getElementById("genreName");
 const genreDescriptionElement = document.getElementById("genreDescription");
@@ -169,196 +137,6 @@ const vinylCover = document.getElementById("vinylCover");
 const PREVIEW_DURATION = 30;
 
 let activeTrackUrl = null;
-
-
-/* =========================================================
-   3. SAFE TEXT / HTML HELPERS
-   ========================================================= */
-
-function escapeTrackText(text) {
-
-    return String(text || "").replace(/[&<>"']/g, character => ({
-
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-
-    })[character]);
-
-}
-
-
-/* Format seconds as minutes and seconds */
-
-function formatPlaybackTime(seconds) {
-
-    const safeSeconds = Math.max(0, Math.floor(seconds));
-
-    const minutes = Math.floor(safeSeconds / 60);
-
-    const remainingSeconds = safeSeconds % 60;
-
-    return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
-
-}
-
-
-/* =========================================================
-   4. DISPLAY GENRE CARDS
-   ========================================================= */
-
-function displayGenres(genreList) {
-
-    if (!genreGrid) return;
-
-    if (genreList.length === 0) {
-
-        genreGrid.innerHTML = `
-            <p class="no-genres">
-                No genres found. Try another filter.
-            </p>
-        `;
-
-        return;
-
-    }
-
-    genreGrid.innerHTML = genreList.map(genre => `
-
-        <a
-            href="genre-details.html?genre=${encodeURIComponent(genre.name)}"
-            class="genre-card"
-            data-category="${escapeTrackText(genre.category)}"
-        >
-
-            <div class="genre-card-image">
-
-                <img
-                    src="${escapeTrackText(genre.image)}"
-                    alt="${escapeTrackText(genre.name)} music"
-                    loading="lazy"
-                    onerror="this.style.display='none';"
-                >
-
-            </div>
-
-            <div class="genre-card-content">
-
-                <h3>${escapeTrackText(genre.name)}</h3>
-
-                <p>${escapeTrackText(genre.description)}</p>
-
-                <span class="genre-card-arrow" aria-hidden="true">
-                    ↗
-                </span>
-
-            </div>
-
-        </a>
-
-    `).join("");
-
-}
-
-
-/* =========================================================
-   5. INITIALISE GENRE CARDS
-   ========================================================= */
-
-if (genreGrid) {
-
-    displayGenres(genres);
-
-}
-
-
-/* =========================================================
-   6. GENRE CATEGORY FILTERS
-   ========================================================= */
-
-const filterButtons = document.querySelectorAll(".genre-buttons button");
-
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const selectedCategory = button.dataset.filter;
-
-        filterButtons.forEach(btn => {
-            btn.classList.remove("active");
-        });
-
-        button.classList.add("active");
-
-        const filteredGenres = selectedCategory === "all"
-            ? genres
-            : genres.filter(genre => genre.category === selectedCategory);
-
-        displayGenres(filteredGenres);
-
-    });
-
-});
-
-
-/* =========================================================
-   7. GENRE DETAILS PAGE
-   ========================================================= */
-
-if (genreNameElement && !genreGrid) {
-
-    const params = new URLSearchParams(window.location.search);
-
-    const selectedGenreName = params.get("genre");
-
-    const selectedGenre = genres.find(
-        genre => genre.name.toLowerCase() ===
-        (selectedGenreName || "").toLowerCase()
-    );
-
-    if (selectedGenre) {
-
-        document.title = `${selectedGenre.name} | Echoes of the South`;
-
-        genreNameElement.textContent = selectedGenre.name;
-
-        if (genreDescriptionElement) {
-            genreDescriptionElement.textContent = selectedGenre.description;
-        }
-
-        if (genreEraElement) {
-            genreEraElement.textContent = "SOUTH AFRICAN MUSIC";
-        }
-
-        if (genreOverviewElement) {
-
-            genreOverviewElement.textContent =
-                `Explore the origins, cultural significance and musical identity of ${selectedGenre.name} in South African music.`;
-
-        }
-
-        loadGenreTracks(selectedGenre.name);
-
-    } else {
-
-        genreNameElement.textContent = "Genre not found";
-
-        if (genreDescriptionElement) {
-
-            genreDescriptionElement.textContent =
-                "Please return to the genres page and select a genre.";
-
-        }
-
-        if (genreTracksElement) {
-            genreTracksElement.innerHTML = "";
-        }
-
-    }
-
-}
 
 
 /* =========================================================
@@ -506,106 +284,416 @@ const southAfricanGenreArtists = {
     ]
 };
 
-async function loadGenreTracks(genreName) {
+/* =========================================================
+   3. SAFE TEXT / HTML HELPERS
+   ========================================================= */
 
-    if (!genreTracksElement) return;
+function escapeTrackText(text) {
 
-    const searchTerms = {
+    return String(text || "").replace(/[&<>"']/g, character => ({
 
-        "Maskandi": "Maskandi South Africa",
-        "Lekompo": "Lekompo South Africa",
-        "Gqom": "Gqom South Africa",
-        "Isicathamiya": "Isicathamiya South Africa",
-        "Marabi": "Marabi South Africa",
-        "Mbaqanga": "Mbaqanga South Africa",
-        "Kwela": "Kwela South Africa",
-        "Reggae": "Lucky Dube",
-        "Kwaito": "Kwaito South Africa",
-        "Bubblegum": "South African bubblegum music",
-        "South African Jazz": "South African jazz",
-        "Gospel": "South African gospel",
-        "Motswako": "Motswako South Africa",
-        "Amapiano": "Amapiano South Africa",
-        "South African House": "South African house music",
-        "Barcadi": "Barcadi South Africa",
-        "Afro-pop": "South African Afro pop"
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
 
-    };
+    })[character]);
 
-    const term = searchTerms[genreName] || `${genreName} South Africa`;
+}
 
-    genreTracksElement.innerHTML = "<p>Loading tracks...</p>";
 
-    try {
+/* Format seconds as minutes and seconds */
 
-        const response = await fetch(
-            `https://itunes.apple.com/search?term=${encodeURIComponent(term)}&country=ZA&media=music&entity=song&limit=50`
-        );
+function formatPlaybackTime(seconds) {
 
-        if (!response.ok) {
-            throw new Error("Music search failed");
+    const safeSeconds = Math.max(0, Math.floor(seconds));
+
+    const minutes = Math.floor(safeSeconds / 60);
+
+    const remainingSeconds = safeSeconds % 60;
+
+    return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
+
+}
+
+
+/* =========================================================
+   4. DISPLAY GENRE CARDS
+   ========================================================= */
+
+
+function displayGenres(genreList) {
+
+    if (!genreGrid) return;
+
+    // Update the genre count
+    if (genreCount) {
+        genreCount.textContent = `${genreList.length} GENRES`;
+    }
+
+
+    //
+    const loadingStatus = document.getElementById("genreLoading");
+
+if (loadingStatus) {
+    loadingStatus.style.display = "none";
+}
+
+const emptyState = document.getElementById("genreEmpty");
+
+if (emptyState) {
+    emptyState.hidden = genreList.length !== 0;
+}
+
+    if (genreList.length === 0) {
+
+        genreGrid.innerHTML = `
+            <p class="no-genres">
+                No genres found. Try another filter.
+            </p>
+        `;
+
+        return;
+    }
+
+    genreGrid.innerHTML = genreList.map(genre => `
+
+        <a
+            href="genre-details.html?genre=${encodeURIComponent(genre.name)}"
+            class="genre-card"
+            data-category="${escapeTrackText(genre.category)}"
+        >
+
+            <div class="genre-card-image">
+
+                <img
+                    src="${escapeTrackText(genre.image)}"
+                    alt="${escapeTrackText(genre.name)} music"
+                    loading="lazy"
+                    onerror="this.style.display='none';"
+                >
+
+            </div>
+
+            <div class="genre-card-content">
+
+              <h3>${escapeTrackText(genre.name)}</h3>
+
+                 <span class="genre-card-arrow" aria-hidden="true">
+                 ↗
+              </span>
+
+            </div>
+
+            </div>
+
+        </a>
+
+    `).join("");
+
+  animateGenreCards(); 
+}
+
+function animateGenreCards() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+//
+    ScrollTrigger.getAll().forEach(trigger => {
+        if (genreGrid.contains(trigger.trigger)) {
+            trigger.kill();
         }
+    });
 
-        const data = await response.json();
+    const cards = gsap.utils.toArray(
+        genreGrid.querySelectorAll(".genre-card")
+    );
 
-        const uniqueTracks = [];
+    gsap.set(cards, {
+        opacity: 0,
+        y: 35
+    });
 
-        const seenTracks = new Set();
+    ScrollTrigger.batch(cards, {
+        start: "top 90%",
+        once: true,
+        onEnter: batch => {
+            gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                stagger: 0.12,
+                ease: "power2.out",
+                overwrite: true
+            });
+        }
+    });
 
-        data.results.forEach(track => {
+    ScrollTrigger.refresh();
+}
+/* =========================================================
+   5. INITIALISE GENRE CARDS
+   ========================================================= */
 
-            if (
-                !track.previewUrl ||
-                !track.trackId ||
-                seenTracks.has(track.trackId)
-            ) {
-                return;
-            }
+if (genreGrid) {
 
-            seenTracks.add(track.trackId);
+    displayGenres(genres);
 
-            uniqueTracks.push(track);
+}
+/* =========================================================
+   GENRE SEARCH
+========================================================= */
 
+let searchScrollTimeout;
+
+genreSearch.addEventListener("input", event => {
+
+//scroll to section
+
+    clearTimeout(searchScrollTimeout);
+
+    if (event.target.value.trim().length > 0) {
+        searchScrollTimeout = setTimeout(() => {
+            genreGrid.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 500);
+    }
+
+});
+
+/* =========================================================
+   6. GENRE CATEGORY FILTERS
+   ========================================================= */
+
+const filterButtons = document.querySelectorAll(".genre-buttons button");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const selectedCategory = button.dataset.filter;
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
         });
 
-        const tracks = uniqueTracks.slice(0, 5);
+        button.classList.add("active");
 
-        if (tracks.length === 0) {
+        const searchTerm = genreSearch?.value.trim().toLowerCase() || "";
 
-            genreTracksElement.innerHTML =
-                "<p>No playable songs were found for this genre.</p>";
+const filteredGenres = genres.filter(genre => {
 
-            return;
+    const matchesSearch =
+        genre.name.toLowerCase().includes(searchTerm) ||
+        genre.description.toLowerCase().includes(searchTerm);
+
+    const matchesCategory =
+        selectedCategory === "all" ||
+        genre.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+
+});
+
+displayGenres(filteredGenres);
+
+    });
+
+});
+
+
+/* =========================================================
+   7. GENRE DETAILS PAGE
+   ========================================================= */
+
+if (genreNameElement && !genreGrid) {
+
+    const params = new URLSearchParams(window.location.search);
+
+    const selectedGenreName = params.get("genre");
+
+    const selectedGenre = genres.find(
+        genre => genre.name.toLowerCase() ===
+        (selectedGenreName || "").toLowerCase()
+    );
+
+    if (selectedGenre) {
+
+        document.title = `${selectedGenre.name} | Echoes of the South`;
+
+        genreNameElement.textContent = selectedGenre.name;
+
+        if (vinylCover) {
+    vinylCover.src = selectedGenre.image;
+    vinylCover.alt = `${selectedGenre.name} genre artwork`;
+}
+
+        if (genreDescriptionElement) {
+            genreDescriptionElement.textContent = selectedGenre.description;
+        }
+
+        if (genreEraElement) {
+            genreEraElement.textContent = "SOUTH AFRICAN MUSIC";
+        }
+
+        if (genreOverviewElement) {
+
 
         }
 
+        loadGenreTracks(selectedGenre.name);
+
+    } else {
+
+        genreNameElement.textContent = "Genre not found";
+
+        if (genreDescriptionElement) {
+
+            genreDescriptionElement.textContent =
+                "Please return to the genres page and select a genre.";
+
+        }
+
+        if (genreTracksElement) {
+            genreTracksElement.innerHTML = "";
+        }
+
+    }
+
+}
+
+
+//
+
+
+async function loadGenreTracks(genreName) {
+    if (!genreTracksElement) return;
+
+    genreTracksElement.innerHTML = "<p>Finding songs...</p>";
+
+    // Match the selected genre to its recognised South African artists.
+    const genreKey = genreName === "Bacardi" ? "Barcadi" : genreName;
+    const artists = southAfricanGenreArtists[genreKey] || [];
+
+    if (!artists.length) {
+        genreTracksElement.innerHTML =
+            "<p>No artists are currently listed for this genre.</p>";
+        return;
+    }
+
+    // Normalise names to make artist matching more reliable.
+    const normaliseArtist = name =>
+        String(name || "")
+            .toLowerCase()
+            .replace(/[^a-z0-9]/g, "");
+
+    try {
+        // Search iTunes separately for each artist.
+        const results = await Promise.allSettled(
+            artists.map(async artist => {
+                const url =
+                    `https://itunes.apple.com/search?term=${encodeURIComponent(artist)}&country=ZA&media=music&entity=song&limit=20`;
+
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error(`Search failed for ${artist}`);
+                }
+
+                const data = await response.json();
+            
+const expectedArtist = normaliseArtist(artist);
+
+return (data.results || []).filter(track => {
+    if (
+        !track.previewUrl ||
+        !track.trackId ||
+        !track.artistName
+    ) {
+        return false;
+    }
+
+    // Separate individual artists in collaborations.
+    const artistNames = track.artistName.split(
+        /\s+(?:feat\.?|featuring|ft\.?|with|x|vs\.?)\s+|[,/&;]/i
+    );
+
+    // Only accept a complete artist-name match.
+    return artistNames.some(
+        name => normaliseArtist(name.trim()) === expectedArtist
+    );
+});
+
+            })
+        );
+
+        
+// Collect songs separately for each artist.
+const tracksByArtist = results.map(result => {
+    if (result.status !== "fulfilled") return [];
+
+    return result.value;
+});
+
+// Mix songs from different artists.
+const uniqueTracks = [];
+const seenTrackIds = new Set();
+
+const maxSongsPerArtist = 2;
+const maxTracks = 5;
+
+for (let round = 0; round < maxSongsPerArtist; round++) {
+    for (const artistTracks of tracksByArtist) {
+        const track = artistTracks[round];
+
+        if (!track || seenTrackIds.has(track.trackId)) continue;
+
+        seenTrackIds.add(track.trackId);
+        uniqueTracks.push(track);
+
+        if (uniqueTracks.length >= maxTracks) break;
+    }
+
+    if (uniqueTracks.length >= maxTracks) break;
+}
+
+const tracks = uniqueTracks;
+
+
+        if (!tracks.length) {
+            genreTracksElement.innerHTML =
+                "<p>No playable songs were found for this genre.</p>";
+            return;
+        }
+
+        const waveformHeights = [
+            8, 15, 22, 12, 28,
+            18, 32, 14, 24, 36,
+            20, 30, 16, 26, 12,
+            34, 19, 28, 14, 22,
+            10, 30, 17, 25, 13,
+            32, 18, 24, 11, 20,
+            27, 13, 31, 17, 23,
+            10, 29, 16, 25, 12,
+            34, 19, 27, 14, 22
+        ];
+
         genreTracksElement.innerHTML = tracks.map((track, index) => {
-
             const fullTrackUrl = track.trackViewUrl ||
-                `https://music.apple.com/za/search?term=${encodeURIComponent(track.trackName + " " + track.artistName)}`;
-
-            const waveformHeights = [
-
-                8, 15, 22, 12, 28,
-                18, 32, 14, 24, 36,
-                20, 30, 16, 26, 12,
-                34, 19, 28, 14, 22,
-                10, 30, 17, 25, 13,
-                32, 18, 24, 11, 20,
-                27, 13, 31, 17, 23,
-                10, 29, 16, 25, 12,
-                34, 19, 27, 14, 22
-
-            ];
+                `https://music.apple.com/za/search?term=${encodeURIComponent(
+                    track.trackName + " " + track.artistName
+                )}`;
 
             return `
-
                 <article
                     class="track-card"
                     data-audio="${escapeTrackText(track.previewUrl)}"
                     data-track-id="${track.trackId}"
+                    data-full-url="${escapeTrackText(fullTrackUrl)}"
                 >
-
                     <span class="track-number">
                         ${String(index + 1).padStart(2, "0")}
                     </span>
@@ -618,7 +706,6 @@ async function loadGenreTracks(genreName) {
                     >
 
                     <div class="track-info">
-
                         <h3>${escapeTrackText(track.trackName)}</h3>
 
                         <p class="track-artist">
@@ -628,11 +715,9 @@ async function loadGenreTracks(genreName) {
                         <span class="preview-duration">
                             30 SECOND PREVIEW
                         </span>
-
                     </div>
 
                     <div class="track-player">
-
                         <button
                             class="track-play-button"
                             type="button"
@@ -647,77 +732,62 @@ async function loadGenreTracks(genreName) {
                             class="track-waveform"
                             aria-label="Song playback progress"
                         >
-
                             ${waveformHeights.map(height => `
-
                                 <span style="--bar-height: ${height}px"></span>
-
                             `).join("")}
-
                         </div>
 
                         <span class="remaining-time">-0:30</span>
 
                         <a
-    class="apple-music-link"
-    href="${escapeTrackText(fullTrackUrl)}"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Listen on Apple Music"
-    title="Listen on Apple Music"
->
-    <svg
-        class="apple-music-logo"
-        viewBox="0 0 220 65"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-    >
-        <path
-            fill="currentColor"
-            d="M36 15c-7-1-13 4-17 4s-9-4-15-3C-4 18-9 25-9 35c0 13 10 29 19 29 5 0 8-3 13-3s8 3 13 3c9 0 18-15 20-25-12-5-14-20-2-27-5-7-12-8-18-7zm-2-9c4-5 4-10 4-12-5 1-11 4-14 9-3 4-4 9-3 12 5 1 10-3 13-9z"
-            transform="translate(12 7) scale(1.15)"
-        />
-        <text
-            x="65"
-            y="53"
-            fill="currentColor"
-            font-family="Arial, Helvetica, sans-serif"
-            font-size="53"
-            font-weight="700"
-            letter-spacing="1"
-        >MUSIC</text>
-    </svg>
-</a>
-
+                            class="apple-music-link"
+                            href="${escapeTrackText(fullTrackUrl)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Listen on Apple Music"
+                            title="Listen on Apple Music"
+                        >
+                            <img
+                               src="https://cdn.simpleicons.org/applemusic/FFFFFF"
+                               alt=""
+                               class="apple-music-logo"
+                              >
+                             <span>Music</span>
+                                <path
+                                    fill="currentColor"
+                                    d="M36 15c-7-1-13 4-17 4s-9-4-15-3C-4 18-9 25-9 35c0 13 10 29 19 29 5 0 8-3 13-3s8 3 13 3c9 0 18-15 20-25-12-5-14-20-2-27-5-7-12-8-18-7zm-2-9c4-5 4-10 4-12-5 1-11 4-14 9-3 4-4 9-3 12 5 1 10-3 13-9z"
+                                    transform="translate(12 7) scale(1.15)"
+                                />
+                                <text
+                                    x="65"
+                                    y="53"
+                                    fill="currentColor"
+                                    font-family="Arial, Helvetica, sans-serif"
+                                    font-size="53"
+                                    font-weight="700"
+                                    letter-spacing="1"
+                                >MUSIC</text>
+                            </svg>
+                        </a>
                     </div>
-
                 </article>
-
             `;
-
         }).join("");
+        animateGenreCards();
 
-
-        /* Attach play button events */
-
+        //  player functionality.
         genreTracksElement.querySelectorAll(".track-card").forEach(card => {
-
             const playButton = card.querySelector(".track-play-button");
 
             playButton.addEventListener("click", () => {
-
                 playTrack(card);
-
             });
-
         });
 
         updateTrackButtons();
-
         updateTrackProgress();
 
     } catch (error) {
-
         console.error("Error loading genre music:", error);
 
         genreTracksElement.innerHTML = `
@@ -725,12 +795,74 @@ async function loadGenreTracks(genreName) {
                 Music could not load. Please check your internet connection and try again.
             </p>
         `;
-
     }
-
 }
 
+// FULL SONG POPUP
+function showFullSongPopup(card) {
+    if (!card || card.dataset.popupShown === "true") return;
 
+    const title = card.querySelector(".track-info h3")?.textContent || "This song";
+    const artist = card.querySelector(".track-artist")?.textContent || "";
+    const artwork = card.querySelector(".track-artwork")?.src || "";
+    const fullUrl = card.dataset.fullUrl;
+
+    if (!fullUrl) return;
+
+    card.dataset.popupShown = "true";
+
+    document.querySelector(".full-song-popup")?.remove();
+
+    const popup = document.createElement("div");
+    popup.className = "full-song-popup";
+
+    popup.innerHTML = `
+        <div class="full-song-popup-content">
+
+            <button class="full-song-popup-close" type="button" aria-label="Close">
+                &times;
+            </button>
+
+            <img src="${escapeTrackText(artwork)}" alt="" class="full-song-popup-artwork">
+
+            <span class="full-song-popup-label">ENJOYED THE PREVIEW?</span>
+
+            <h2>Keep the music going.</h2>
+
+            <p class="full-song-popup-track">${escapeTrackText(title)}</p>
+            <p class="full-song-popup-artist">${escapeTrackText(artist)}</p>
+
+            <a
+                href="${escapeTrackText(fullUrl)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="full-song-popup-button"
+            >
+                Listen to the full song
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <button class="full-song-popup-dismiss" type="button">
+                Maybe later
+            </button>
+
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+
+    const closePopup = () => popup.remove();
+
+    popup.querySelector(".full-song-popup-close")
+        .addEventListener("click", closePopup);
+
+    popup.querySelector(".full-song-popup-dismiss")
+        .addEventListener("click", closePopup);
+
+    popup.addEventListener("click", event => {
+        if (event.target === popup) closePopup();
+    });
+}
 /* =========================================================
    9. TRACK PLAYBACK
    ========================================================= */
@@ -744,6 +876,11 @@ async function playTrack(card) {
     const trackImage = card.querySelector(".track-artwork");
 
     if (!audioUrl) return;
+// Scroll back to the vinyl player when a song is selected.
+genreVinyl?.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+});
 
     try {
 
@@ -944,19 +1081,29 @@ if (genreAudio) {
 
     });
 
-    genreAudio.addEventListener("timeupdate", () => {
+genreAudio.addEventListener("timeupdate", () => {
 
-        if (genreAudio.currentTime >= PREVIEW_DURATION) {
+    if (genreAudio.currentTime >= PREVIEW_DURATION) {
 
-            genreAudio.currentTime = PREVIEW_DURATION;
+        genreAudio.currentTime = PREVIEW_DURATION;
 
-            genreAudio.pause();
+        const currentCard = [...document.querySelectorAll(".track-card")]
+            .find(card => card.dataset.audio === activeTrackUrl);
 
-        }
+        genreAudio.pause();
 
         updateTrackProgress();
+        updateTrackButtons();
 
-    });
+        showFullSongPopup(currentCard);
+
+        return;
+    }
+
+    updateTrackProgress();
+
+});
+
 
     genreAudio.addEventListener("loadedmetadata", () => {
 
@@ -1165,3 +1312,5 @@ genreDetailButtons.forEach(button => {
     });
 
 });
+
+

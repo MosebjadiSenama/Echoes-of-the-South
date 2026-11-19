@@ -20,44 +20,13 @@
 
     <!-- JAVASCRIPT -->
     <script src="../js/artist-details.js" defer></script>
+    <script src="../js/nav.js" defer></script>
 </head>
 
 <body>
 
-    <!-- ============================================================
-         NAVIGATION
-    ============================================================ -->
-
-    <section class="navigation-section">
-
-        <div class="navigation-bar">
-
-            <img src="../Assets/Logo/Frame 64.png" alt="Echoes of the South logo">
-
-            <ul class="nav-bar">
-
-                <li><a href="home.html">Home</a></li>
-                <li><a href="Artists.html">Artists</a></li>
-                <li><a href="Genres.html">Genres</a></li>
-                <li><a href="Stories.html">Stories</a></li>
-
-            </ul>
-
-            <div class="search-container">
-
-                <span class="search-icon">⌕</span>
-
-                <input
-                    class="search-bar"
-                    type="search"
-                    placeholder="Search for artists, genres and stories"
-                >
-
-            </div>
-
-        </div>
-
-    </section>
+<!--============================================================NAVIGATION BAR=================================================-->
+<div id="navigation-container"></div>
 
 
     <!-- ============================================================
@@ -69,7 +38,7 @@
         <!-- BACK BUTTON -->
 
         <a href="Artists.html" class="artist-back-button">
-            ←
+            ←Back to artists
         </a>
 
 
@@ -134,9 +103,40 @@
 
             </div>
 
-            <div class="featured-song-waveform">
-                <div class="waveform" id="audioWaveform"></div>
-            </div>
+<!--waveform=========================================================================================================-->
+
+
+        <div class="featured-song-waveform">
+    <div class="waveform-visualizer" id="audioWaveform">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+</div>
 
             <audio id="artistAudio" preload="none"></audio>
 
@@ -176,13 +176,6 @@
                     Biography
                 </button>
 
-                <button
-                    class="artist-tab"
-                    data-tab="gallery"
-                    type="button"
-                >
-                    Gallery
-                </button>
 
             </div>
 

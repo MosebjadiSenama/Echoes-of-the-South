@@ -161,11 +161,40 @@ const artistGalleryElement = document.getElementById("artistGallery");
 
 const audioElement = document.getElementById("artistAudio");
 const playButton = document.getElementById("playFeaturedSong");
+const audioWaveform = document.getElementById("audioWaveform");
 
 const tabButtons = document.querySelectorAll(".artist-tab");
 const tabContents = document.querySelectorAll(".artist-tab-content");
 
+//
+// featured song popup
+let featuredPopupShown = false;
 
+const featuredPreviewPopup = document.createElement("div");
+featuredPreviewPopup.className = "preview-popup";
+featuredPreviewPopup.hidden = true;
+
+featuredPreviewPopup.innerHTML = `
+    <div class="preview-popup-content">
+        <button class="preview-popup-close" type="button">&times;</button>
+        <h3>Enjoying the music?</h3>
+        <p>Listen to the full song on Apple Music.</p>
+        <a id="featuredAppleMusicLink"
+           href="https://music.apple.com/"
+           target="_blank"
+           rel="noopener noreferrer">
+            Listen on Apple Music
+        </a>
+    </div>
+`;
+
+document.body.appendChild(featuredPreviewPopup);
+
+featuredPreviewPopup
+    .querySelector(".preview-popup-close")
+    .addEventListener("click", () => {
+        featuredPreviewPopup.hidden = true;
+    });
 /* ============================================================
    FORMAT ARTIST NAME
 ============================================================ */
@@ -915,10 +944,16 @@ async function fetchArtistSongs(artistName) {
             return [];
 
         }
+displayArtistSongs(songs);
 
-        displayArtistSongs(songs);
+// Load the first available preview into the featured player
+const featuredSong = songs.find(song => song.previewUrl);
 
-        return songs;
+if (featuredSong) {
+    displayFeaturedSong(featuredSong);
+}
+
+return songs;
 
     } catch (error) {
 
@@ -939,46 +974,177 @@ async function fetchArtistSongs(artistName) {
 ============================================================ */
 
 function displayArtistSongs(songs) {
-
     artistSongsElement.innerHTML = "";
 
-    songs.forEach((song, index) => {
+    const availableSongs = songs
+        .filter(song => song.trackName && song.previewUrl)
+        .slice(0, 4);
 
+    if (!availableSongs.length) {
+        artistSongsElement.innerHTML =
+            "<p>No song previews are currently available.</p>";
+        return;
+    }
+
+    let activeAudio = null;
+
+    availableSongs.forEach(song => {
         const row = document.createElement("div");
-
         row.className = "artist-song";
 
-        const button = document.createElement("button");
+        const artwork = document.createElement("img");
+        artwork.className = "artist-song-artwork";
+        artwork.src = song.artworkUrl100 || "";
+        artwork.alt = `${song.trackName} artwork`;
 
-        button.className = "artist-song-play";
-        button.type = "button";
-        button.textContent = "▶";
+        const information = document.createElement("div");
+        information.className = "artist-song-information";
 
-        const title = document.createElement("span");
-
-        title.className = "artist-song-name";
+        const title = document.createElement("h3");
         title.textContent = song.trackName;
 
-        const duration = document.createElement("span");
+        const artist = document.createElement("p");
+        artist.textContent = song.artistName;
 
-        duration.className = "artist-song-duration";
+        information.append(title, artist);
 
-        duration.textContent = song.trackTimeMillis
-            ? formatSongDuration(song.trackTimeMillis)
-            : "--:--";
+        const audio = document.createElement("audio");
+        audio.src = song.previewUrl;
+        audio.preload = "none";
 
-        button.addEventListener("click", () => playSong(song));
+        const playButton = document.createElement("button");
+        playButton.className = "artist-song-play";
+        playButton.type = "button";
+        playButton.textContent = "▶";
 
-        row.append(button, title, duration);
+        const progressArea = document.createElement("div");
+        progressArea.className = "artist-song-progress-area";
 
+        const currentTime = document.createElement("span");
+        currentTime.className = "artist-song-time";
+        currentTime.textContent = "0:00";
+
+        const progressTrack = document.createElement("div");
+        progressTrack.className = "artist-song-progress-track";
+
+        const progressPlayed = document.createElement("div");
+        progressPlayed.className = "artist-song-progress-played";
+
+        progressTrack.appendChild(progressPlayed);
+
+        const fullDuration = document.createElement("span");
+        fullDuration.className = "artist-song-time";
+
+        const totalSeconds = Math.floor(song.trackTimeMillis / 1000);
+
+        fullDuration.textContent =
+            `${Math.floor(totalSeconds / 60)}:${String(totalSeconds % 60).padStart(2, "0")}`;
+
+        progressArea.append(currentTime, progressTrack, fullDuration);
+
+        row.append(artwork, information, progressArea, playButton, audio);
         artistSongsElement.appendChild(row);
 
-        if (index === 0) {
-            displayFeaturedSong(song);
+        //embed song popup
+
+        // Apple Music preview popup
+const previewPopup = document.createElement("div");
+previewPopup.className = "preview-popup";
+previewPopup.hidden = true;
+
+previewPopup.innerHTML = `
+    <div class="preview-popup-content">
+        <button class="preview-popup-close" type="button">&times;</button>
+        <h3>Enjoying the music?</h3>
+        <p>Listen to the full song on Apple Music.</p>
+        <a href="${song.trackViewUrl || 'https://music.apple.com/'}"
+           target="_blank"
+           rel="noopener noreferrer">
+            Listen on Apple Music
+        </a>
+    </div>
+`;
+
+document.body.appendChild(previewPopup);
+
+previewPopup.querySelector(".preview-popup-close").addEventListener("click", () => {
+    previewPopup.hidden = true;
+});
+
+        function formatTime(time) {
+            const mins = Math.floor(time / 60);
+            const secs = Math.floor(time % 60);
+            return `${mins}:${String(secs).padStart(2, "0")}`;
         }
 
-    });
+        playButton.addEventListener("click", async () => {
+    // stop the featured song if it is playing
+    if (!audioElement.paused) {
+        audioElement.pause();
+        audioElement.currentTime = 0;
+    }
+            if (activeAudio && activeAudio !== audio) {
+                activeAudio.pause();
 
+                activeAudio.closest(".artist-song")
+                    .querySelector(".artist-song-play").textContent = "▶";
+            }
+
+            if (audio.paused) {
+                if (audio.currentTime >= 30) {
+                    audio.currentTime = 0;
+                    progressPlayed.style.width = "0%";
+                    currentTime.textContent = "0:00";
+                }
+
+                try {
+                    await audio.play();
+                    activeAudio = audio;
+                    playButton.textContent = "Ⅱ";
+                } catch (error) {
+                    console.error("Song preview could not play:", error);
+                }
+            } else {
+                audio.pause();
+                playButton.textContent = "▶";
+            }
+        });
+
+        audio.addEventListener("timeupdate", () => {
+    const progress = (audio.currentTime / totalSeconds) * 100;
+
+    progressPlayed.style.width = `${progress}%`;
+    currentTime.textContent = formatTime(audio.currentTime);
+
+    if (audio.currentTime >= 30) {
+        audio.pause();
+        audio.currentTime = 30;
+
+        playButton.textContent = "▶";
+        currentTime.textContent = "0:30";
+
+        progressPlayed.style.width = `${(30 / totalSeconds) * 100}%`;
+
+        activeAudio = null;
+    }
+});
+
+        audio.addEventListener("ended", () => {
+    playButton.textContent = "▶";
+    currentTime.textContent = "0:30";
+
+    progressPlayed.style.width = `${(30 / totalSeconds) * 100}%`;
+
+    activeAudio = null;
+
+    previewPopup.hidden = false;
+    return;
+});
+
+        audio.addEventListener("pause", () => {
+            playButton.textContent = "▶";
+        });
+    });
 }
 
 
@@ -1023,13 +1189,19 @@ function displayFeaturedSong(song) {
 
     }
 
-    audioElement.pause();
+   audioElement.pause();
 
-    audioElement.src = song.previewUrl || "";
+audioElement.src = song.previewUrl || "";
 
-    playButton.disabled = !song.previewUrl;
+featuredPopupShown = false;
+featuredPreviewPopup.hidden = true;
 
-    playButton.textContent = "▶";
+document.getElementById("featuredAppleMusicLink").href =
+    song.trackViewUrl || "https://music.apple.com/";
+
+playButton.disabled = !song.previewUrl;
+
+playButton.textContent = "▶";
 
 }
 
@@ -1047,6 +1219,7 @@ async function playSong(song) {
     audioElement.pause();
 
     audioElement.src = song.previewUrl;
+    featuredTrackUrl = song.trackViewUrl || "https://music.apple.com/";
 
     featuredSongTitle.textContent = song.trackName;
 
@@ -1088,20 +1261,19 @@ playButton.addEventListener("click", async () => {
 
     if (audioElement.paused) {
 
-        try {
+        if (audioElement.currentTime >= 30) {
+            audioElement.currentTime = 0;
+        }
 
+        try {
             await audioElement.play();
 
         } catch (error) {
-
             console.error("Playback error:", error);
-
         }
 
     } else {
-
         audioElement.pause();
-
     }
 
 });
@@ -1115,18 +1287,28 @@ audioElement.addEventListener("ended", () => {
 
 
 audioElement.addEventListener("pause", () => {
-
     playButton.textContent = "▶";
-
+    audioWaveform.classList.remove("playing");
 });
-
 
 audioElement.addEventListener("play", () => {
-
     playButton.textContent = "Ⅱ";
-
+    audioWaveform.classList.add("playing");
 });
 
+// stop featured preview at 30 seconds and show popup
+audioElement.addEventListener("timeupdate", () => {
+    if (audioElement.currentTime >= 30) {
+        audioElement.pause();
+        audioElement.currentTime = 30;
+        playButton.textContent = "▶";
+
+        if (!featuredPopupShown) {
+            featuredPreviewPopup.hidden = false;
+            featuredPopupShown = true;
+        }
+    }
+});
 
 /* ============================================================
    ARTIST PROFILE TABS

@@ -40,7 +40,8 @@ const genreArtists = {
         "Umafikizolo",
         "Mthandeni SK",
         "Menzi Music",
-        "Umgqumeni"
+        "Umgqumeni",
+        "Umajotha"
     ],
 
     "Motswako": [
@@ -1269,6 +1270,8 @@ filterButtons.forEach(button => {
    SEARCH
 ============================================================ */
 
+let searchScrollTimeout;
+
 artistSearch.addEventListener("input", event => {
 
     searchTerm = event.target.value.trim().toLowerCase();
@@ -1277,8 +1280,18 @@ artistSearch.addEventListener("input", event => {
 
     renderArtists();
 
-});
+    clearTimeout(searchScrollTimeout);
 
+    if (searchTerm.length > 0) {
+        searchScrollTimeout = setTimeout(() => {
+            artistGrid.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 500);
+    }
+
+});
 
 /* ============================================================
    LOAD MORE
