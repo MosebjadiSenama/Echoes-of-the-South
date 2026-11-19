@@ -1,10 +1,17 @@
 
+const isHtmlPage = window.location.pathname.toLowerCase().includes("/html/");
+
+const homeLink = isHtmlPage ? "../index.html" : "index.html";
+const pagePrefix = isHtmlPage ? "" : "Html/";
+const assetPrefix = isHtmlPage ? "../" : "";
+
 const navHTML = `
 <header class="site-navigation">
 
     <div class="navigation-bar">
-        <a href="index.html" class="nav-logo">
-            <img src="../Assets/Logo/Frame 64.png" alt="Echoes of the South">
+
+        <a href="${homeLink}" class="nav-logo">
+            <img src="${assetPrefix}Assets/Logo/Frame 64.png" alt="Echoes of the South">
         </a>
 
         <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
@@ -14,18 +21,19 @@ const navHTML = `
         </button>
 
         <ul class="nav-bar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Artists.html">Artists</a></li>
-            <li><a href="Genres.html">Genres</a></li>
-            <li><a href="Stories.html">Stories</a></li>
+            <li><a href="${homeLink}">Home</a></li>
+            <li><a href="${pagePrefix}Artists.html">Artists</a></li>
+            <li><a href="${pagePrefix}Genres.html">Genres</a></li>
+            <li><a href="${pagePrefix}Stories.html">Stories</a></li>
         </ul>
+
     </div>
 
     <nav class="mobile-menu">
-        <a href="index.html">Home</a>
-        <a href="Artists.html">Artists</a>
-        <a href="Genres.html">Genres</a>
-        <a href="Stories.html">Stories</a>
+        <a href="${homeLink}">Home</a>
+        <a href="${pagePrefix}Artists.html">Artists</a>
+        <a href="${pagePrefix}Genres.html">Genres</a>
+        <a href="${pagePrefix}Stories.html">Stories</a>
     </nav>
 
 </header>
@@ -35,19 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const container = document.getElementById("navigation-container");
 
-    // Stop if the navigation container does not exist
     if (!container) return;
 
-    // Insert navigation once
     container.innerHTML = navHTML;
 
-    // Detect current page
     const currentPage = window.location.pathname
         .split("/")
         .pop()
         .toLowerCase();
 
-    // Highlight active desktop and mobile links
     document.querySelectorAll(".site-navigation a[href]").forEach(link => {
 
         const linkPage = link.getAttribute("href")
@@ -61,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    // Mobile menu
     const menuToggle = document.querySelector(".menu-toggle");
     const mobileMenu = document.querySelector(".mobile-menu");
 
